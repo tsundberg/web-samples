@@ -21,7 +21,6 @@ public class SelectBeveragePage {
         if (!title.equals(expectedTitle)) {
             throw new WrongPageException(title, expectedTitle);
         }
-
     }
 
     public String getSelectedBeverage() {
