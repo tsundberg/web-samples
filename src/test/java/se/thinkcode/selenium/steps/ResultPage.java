@@ -1,6 +1,6 @@
 package se.thinkcode.selenium.steps;
 
-import se.thinkcode.selenium.model.Currency;
+import se.thinkcode.selenium.actions.convert.Currency;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

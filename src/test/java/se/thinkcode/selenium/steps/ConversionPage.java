@@ -1,7 +1,7 @@
 package se.thinkcode.selenium.steps;
 
-import se.thinkcode.selenium.infrastructure.Action;
-import se.thinkcode.selenium.model.Currency;
+import se.thinkcode.selenium.actions.convert.Action;
+import se.thinkcode.selenium.actions.convert.Currency;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,7 +12,7 @@ public class ConversionPage {
 
     public ConversionPage(WebDriver browser) {
         this.browser = browser;
-        browser.get("http://localhost:8080  ");
+        browser.get("http://localhost:8080/conversion.html");
 
         String title = browser.getTitle();
 

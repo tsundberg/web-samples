@@ -1,6 +1,8 @@
-package se.thinkcode.selenium.infrastructure;
+package se.thinkcode.selenium.actions;
 
-import se.thinkcode.selenium.model.Currency;
+import se.thinkcode.selenium.actions.convert.Action;
+import se.thinkcode.selenium.actions.convert.Conversion;
+import se.thinkcode.selenium.actions.convert.Currency;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;

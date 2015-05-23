@@ -1,6 +1,4 @@
-package se.thinkcode.selenium.infrastructure;
-
-import se.thinkcode.selenium.model.Currency;
+package se.thinkcode.selenium.actions.convert;
 
 public class Conversion {
     public static final double EUR_TO_USD = 0.81;

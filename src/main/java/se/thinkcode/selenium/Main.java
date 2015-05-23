@@ -1,26 +1,25 @@
 package se.thinkcode.selenium;
 
-import se.thinkcode.selenium.actions.BuyCurrency;
-import se.thinkcode.selenium.infrastructure.Action;
-import se.thinkcode.selenium.model.Currency;
+import se.thinkcode.selenium.actions.convert.Action;
+import se.thinkcode.selenium.actions.convert.BuyCurrency;
+import se.thinkcode.selenium.actions.convert.Currency;
 import spark.ModelAndView;
 import spark.template.mustache.MustacheTemplateEngine;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static spark.Spark.post;
-import static spark.SparkBase.port;
-import static spark.SparkBase.staticFileLocation;
+import static spark.Spark.*;
 
 public class Main {
     public static void main(String[] args) {
         port(8080);
         staticFileLocation("/public");
-        respondToConvert();
+        convert();
+        awaitInitialization();
     }
 
-    private static void respondToConvert() {
+    private static void convert() {
         post("/convert", (request, response) -> {
             String actionStr = request.queryParams("action");
             String toCurrencyStr = request.queryParams("toCurrency");

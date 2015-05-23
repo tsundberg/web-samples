@@ -1,4 +1,4 @@
-package se.thinkcode.selenium.model;
+package se.thinkcode.selenium.actions.convert;
 
 public class Currency {
     private String currency;

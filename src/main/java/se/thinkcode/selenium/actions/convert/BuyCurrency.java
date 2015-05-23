@@ -1,8 +1,4 @@
-package se.thinkcode.selenium.actions;
-
-import se.thinkcode.selenium.infrastructure.Action;
-import se.thinkcode.selenium.infrastructure.Conversion;
-import se.thinkcode.selenium.model.Currency;
+package se.thinkcode.selenium.actions.convert;
 
 public class BuyCurrency {
     private final Action action;

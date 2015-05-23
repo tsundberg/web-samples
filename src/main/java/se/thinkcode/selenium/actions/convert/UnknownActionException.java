@@ -1,4 +1,4 @@
-package se.thinkcode.selenium.infrastructure;
+package se.thinkcode.selenium.actions.convert;
 
 public class UnknownActionException extends RuntimeException {
 }

@@ -1,10 +1,10 @@
 package se.thinkcode.selenium.steps;
 
-import se.thinkcode.selenium.Main;
-import se.thinkcode.selenium.infrastructure.Action;
-import se.thinkcode.selenium.model.Currency;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import se.thinkcode.selenium.Main;
+import se.thinkcode.selenium.actions.convert.Action;
+import se.thinkcode.selenium.actions.convert.Currency;
 
 public class ConversionHelper {
     private final Action action;
@@ -29,16 +29,6 @@ public class ConversionHelper {
     private void startApplication() {
         String[] args = {};
         Main.main(args);
-
-        allowServerTimeToStart();
-    }
-
-    private void allowServerTimeToStart() {
-        try {
-            Thread.sleep(300);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     public void convert() {

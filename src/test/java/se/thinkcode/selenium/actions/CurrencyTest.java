@@ -1,6 +1,7 @@
-package se.thinkcode.selenium.model;
+package se.thinkcode.selenium.actions;
 
 import org.junit.Test;
+import se.thinkcode.selenium.actions.convert.Currency;
 
 import static org.junit.Assert.assertTrue;
 

@@ -1,7 +1,7 @@
 package se.thinkcode.selenium.steps;
 
-import se.thinkcode.selenium.infrastructure.Action;
-import se.thinkcode.selenium.model.Currency;
+import se.thinkcode.selenium.actions.convert.Action;
+import se.thinkcode.selenium.actions.convert.Currency;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
