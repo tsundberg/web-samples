@@ -3,7 +3,7 @@ package se.thinkcode.selenium.steps.password;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import se.thinkcode.selenium.steps.WrongPageException;
+import se.thinkcode.selenium.WrongPageException;
 
 public class ConfirmationPage {
     private WebDriver browser;
@@ -12,10 +12,11 @@ public class ConfirmationPage {
     public ConfirmationPage(WebDriver browser) {
         this.browser = browser;
 
-        String title = browser.getTitle();
+        String actualTitle = browser.getTitle();
+        String expectedTitle = "Confirm new password request";
 
-        if (!title.equals("Confirm new password request")) {
-            throw new WrongPageException();
+        if (!actualTitle.equals(expectedTitle)) {
+            throw new WrongPageException(actualTitle, expectedTitle);
         }
 
         parseResult();

@@ -2,8 +2,6 @@ package se.thinkcode.selenium.steps.password;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import se.thinkcode.selenium.Main;
-import se.thinkcode.selenium.steps.ApplicationHelper;
 
 public class PasswordHelper {
     private String account;

@@ -3,7 +3,7 @@ package se.thinkcode.selenium.steps.password;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import se.thinkcode.selenium.steps.ApplicationHelper;
+import se.thinkcode.selenium.ApplicationHelper;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

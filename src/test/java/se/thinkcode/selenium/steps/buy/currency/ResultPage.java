@@ -1,10 +1,10 @@
 package se.thinkcode.selenium.steps.buy.currency;
 
-import se.thinkcode.selenium.actions.buy.currency.Currency;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import se.thinkcode.selenium.steps.WrongPageException;
+import se.thinkcode.selenium.WrongPageException;
+import se.thinkcode.selenium.actions.buy.currency.Currency;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -16,9 +16,11 @@ public class ResultPage {
 
     public ResultPage(WebDriver browser) {
         this.browser = browser;
-        String title = browser.getTitle();
-        if(!title.equals("Buy currency result")) {
-            throw new WrongPageException();
+        String actualTitle = browser.getTitle();
+        String expectedTitle = "Buy currency result";
+
+        if (!actualTitle.equals(expectedTitle)) {
+            throw new WrongPageException(actualTitle, expectedTitle);
         }
 
         parseResult();

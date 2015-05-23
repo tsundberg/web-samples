@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import se.thinkcode.selenium.steps.WrongPageException;
+import se.thinkcode.selenium.WrongPageException;
 
 public class BuyCurrencyPage {
     private WebDriver browser;
@@ -15,10 +15,11 @@ public class BuyCurrencyPage {
         this.browser = browser;
         browser.get("http://localhost:8080/buyCurrency.html");
 
-        String title = browser.getTitle();
+        String actualTitle = browser.getTitle();
+        String expectedTitle = "Buy currency";
 
-        if (!title.equals("Buy currency")) {
-            throw new WrongPageException();
+        if (!actualTitle.equals(expectedTitle)) {
+            throw new WrongPageException(actualTitle, expectedTitle);
         }
     }
 

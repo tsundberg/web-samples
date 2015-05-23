@@ -1,4 +1,4 @@
-package se.thinkcode.selenium.actions;
+package se.thinkcode.selenium.actions.buy.currency;
 
 import org.junit.Test;
 import se.thinkcode.selenium.actions.buy.currency.Action;

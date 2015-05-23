@@ -3,7 +3,7 @@ package se.thinkcode.selenium.steps.password;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import se.thinkcode.selenium.steps.WrongPageException;
+import se.thinkcode.selenium.WrongPageException;
 
 public class RequestPage {
     private WebDriver browser;
@@ -13,10 +13,11 @@ public class RequestPage {
         this.browser = browser;
         browser.get("http://localhost:8080/requestPassword.html");
 
-        String title = browser.getTitle();
+        String actualTitle = browser.getTitle();
+        String expectedTitle = "Request new password";
 
-        if (!title.equals("Request new password")) {
-            throw new WrongPageException();
+        if (!actualTitle.equals(expectedTitle)) {
+            throw new WrongPageException(actualTitle, expectedTitle);
         }
     }
 
