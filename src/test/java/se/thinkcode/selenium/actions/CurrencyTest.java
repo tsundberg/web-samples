@@ -1,7 +1,7 @@
 package se.thinkcode.selenium.actions;
 
 import org.junit.Test;
-import se.thinkcode.selenium.actions.convert.Currency;
+import se.thinkcode.selenium.actions.buy.currency.Currency;
 
 import static org.junit.Assert.assertTrue;
 

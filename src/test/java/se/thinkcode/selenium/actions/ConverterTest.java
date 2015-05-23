@@ -1,14 +1,14 @@
 package se.thinkcode.selenium.actions;
 
-import se.thinkcode.selenium.actions.convert.Action;
-import se.thinkcode.selenium.actions.convert.Conversion;
-import se.thinkcode.selenium.actions.convert.Currency;
+import se.thinkcode.selenium.actions.buy.currency.Action;
+import se.thinkcode.selenium.actions.buy.currency.Converter;
+import se.thinkcode.selenium.actions.buy.currency.Currency;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class ConversionTest {
+public class ConverterTest {
     @Test
     public void shouldConvertEURtoUSD() {
         int expected = 147;
@@ -17,9 +17,9 @@ public class ConversionTest {
         int amount = 170;
         Currency to = new Currency("USD");
         Currency from = new Currency("EUR");
-        Conversion conversion = new Conversion(action, amount, to, from);
+        Converter converter = new Converter(action, amount, to, from);
 
-        int actual = conversion.getCost();
+        int actual = converter.getCost();
 
         assertThat(actual, is(expected));
     }

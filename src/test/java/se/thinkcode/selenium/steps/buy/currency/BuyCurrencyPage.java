@@ -1,23 +1,23 @@
-package se.thinkcode.selenium.steps.convert;
+package se.thinkcode.selenium.steps.buy.currency;
 
-import se.thinkcode.selenium.actions.convert.Action;
-import se.thinkcode.selenium.actions.convert.Currency;
+import se.thinkcode.selenium.actions.buy.currency.Action;
+import se.thinkcode.selenium.actions.buy.currency.Currency;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import se.thinkcode.selenium.steps.WrongPageException;
 
-public class ConversionPage {
+public class BuyCurrencyPage {
     private WebDriver browser;
 
-    public ConversionPage(WebDriver browser) {
+    public BuyCurrencyPage(WebDriver browser) {
         this.browser = browser;
-        browser.get("http://localhost:8080/conversion.html");
+        browser.get("http://localhost:8080/buyCurrency.html");
 
         String title = browser.getTitle();
 
-        if (!title.equals("Convert currency")) {
+        if (!title.equals("Buy currency")) {
             throw new WrongPageException();
         }
     }
@@ -49,7 +49,7 @@ public class ConversionPage {
     }
 
     public ResultPage submitForm() {
-        WebElement form = browser.findElement(By.id("conversion"));
+        WebElement form = browser.findElement(By.id("orderCurrency"));
         form.submit();
 
         return new ResultPage(browser);

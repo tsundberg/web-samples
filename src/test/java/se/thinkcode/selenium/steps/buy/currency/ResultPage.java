@@ -1,6 +1,6 @@
-package se.thinkcode.selenium.steps.convert;
+package se.thinkcode.selenium.steps.buy.currency;
 
-import se.thinkcode.selenium.actions.convert.Currency;
+import se.thinkcode.selenium.actions.buy.currency.Currency;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,7 +17,7 @@ public class ResultPage {
     public ResultPage(WebDriver browser) {
         this.browser = browser;
         String title = browser.getTitle();
-        if(!title.equals("Convert currency result")) {
+        if(!title.equals("Buy currency result")) {
             throw new WrongPageException();
         }
 

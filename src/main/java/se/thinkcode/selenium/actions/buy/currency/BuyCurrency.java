@@ -1,4 +1,4 @@
-package se.thinkcode.selenium.actions.convert;
+package se.thinkcode.selenium.actions.buy.currency;
 
 public class BuyCurrency {
     private final Action action;
@@ -14,7 +14,7 @@ public class BuyCurrency {
     }
 
     public int getCost() {
-        Conversion conversion = new Conversion(action, amount, to, from);
-        return conversion.getCost();
+        Converter converter = new Converter(action, amount, to, from);
+        return converter.getCost();
     }
 }

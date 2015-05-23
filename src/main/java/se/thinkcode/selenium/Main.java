@@ -1,8 +1,8 @@
 package se.thinkcode.selenium;
 
-import se.thinkcode.selenium.actions.convert.Action;
-import se.thinkcode.selenium.actions.convert.BuyCurrency;
-import se.thinkcode.selenium.actions.convert.Currency;
+import se.thinkcode.selenium.actions.buy.currency.Action;
+import se.thinkcode.selenium.actions.buy.currency.BuyCurrency;
+import se.thinkcode.selenium.actions.buy.currency.Currency;
 import spark.ModelAndView;
 import spark.template.mustache.MustacheTemplateEngine;
 
@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
         port(8080);
         staticFileLocation("/public");
-        convert();
+        calculateCurrencyCost();
         requestNewPassword();
         awaitInitialization();
     }
@@ -25,8 +25,8 @@ public class Main {
         stop();
     }
 
-    private static void convert() {
-        post("/convert", (request, response) -> {
+    private static void calculateCurrencyCost() {
+        post("/calculateCurrencyCost", (request, response) -> {
             String actionStr = request.queryParams("action");
             String toCurrencyStr = request.queryParams("toCurrency");
             String amountStr = request.queryParams("amount");
@@ -46,7 +46,7 @@ public class Main {
             map.put("cost", "" + cost);
             map.put("fromCurrency", fromCurrencyStr);
 
-            return new ModelAndView(map, "convert_result.mustache");
+            return new ModelAndView(map, "buy_currency.mustache");
         }, new MustacheTemplateEngine());
     }
 

@@ -1,4 +1,4 @@
-Feature: Convert between different currencies
+Feature: Buy different currencies
 
   Scenario: Convert USD from EUR
     Given I want to buy 170 USD using EUR

@@ -1,13 +1,13 @@
-package se.thinkcode.selenium.actions.convert;
+package se.thinkcode.selenium.actions.buy.currency;
 
-public class Conversion {
+public class Converter {
     public static final double EUR_TO_USD = 0.81;
     private final Action action;
     private final int amount;
     private final Currency to;
     private final Currency from;
 
-    public Conversion(Action action, int amount, Currency to, Currency from) {
+    public Converter(Action action, int amount, Currency to, Currency from) {
         this.action = action;
         this.amount = amount;
         this.to = to;

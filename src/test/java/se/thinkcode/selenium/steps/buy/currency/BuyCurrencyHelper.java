@@ -1,12 +1,11 @@
-package se.thinkcode.selenium.steps.convert;
+package se.thinkcode.selenium.steps.buy.currency;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import se.thinkcode.selenium.Main;
-import se.thinkcode.selenium.actions.convert.Action;
-import se.thinkcode.selenium.actions.convert.Currency;
+import se.thinkcode.selenium.actions.buy.currency.Action;
+import se.thinkcode.selenium.actions.buy.currency.Currency;
 
-public class ConversionHelper {
+public class BuyCurrencyHelper {
     private final Action action;
     private final int amount;
     private final Currency to;
@@ -15,7 +14,7 @@ public class ConversionHelper {
     private WebDriver browser = new FirefoxDriver();
     private ResultPage resultPage;
 
-    public ConversionHelper(Action action, int amount, Currency to, Currency from) {
+    public BuyCurrencyHelper(Action action, int amount, Currency to, Currency from) {
         this.action = action;
         this.amount = amount;
         this.to = to;
@@ -23,7 +22,7 @@ public class ConversionHelper {
     }
 
     public void convert() {
-        ConversionPage conversionPage = new ConversionPage(browser);
+        BuyCurrencyPage conversionPage = new BuyCurrencyPage(browser);
 
         conversionPage.selectAction(action);
         conversionPage.selectWantedCurrency(to);

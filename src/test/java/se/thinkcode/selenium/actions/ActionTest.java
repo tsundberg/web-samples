@@ -1,7 +1,7 @@
 package se.thinkcode.selenium.actions;
 
 import org.junit.Test;
-import se.thinkcode.selenium.actions.convert.Action;
+import se.thinkcode.selenium.actions.buy.currency.Action;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;

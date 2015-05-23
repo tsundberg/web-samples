@@ -1,7 +1,7 @@
-package se.thinkcode.selenium.steps.convert;
+package se.thinkcode.selenium.steps.buy.currency;
 
-import se.thinkcode.selenium.actions.convert.Action;
-import se.thinkcode.selenium.actions.convert.Currency;
+import se.thinkcode.selenium.actions.buy.currency.Action;
+import se.thinkcode.selenium.actions.buy.currency.Currency;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -10,8 +10,8 @@ import se.thinkcode.selenium.steps.ApplicationHelper;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class ConversionSteps {
-    private ConversionHelper conversionHelper;
+public class BuyCurrencySteps {
+    private BuyCurrencyHelper conversionHelper;
     private int actualCost;
 
     @Given("^I want to (.*) (\\d+) (.*) using (.*)$")
@@ -22,7 +22,7 @@ public class ConversionSteps {
         Currency target = new Currency(targetCurrency);
         Currency source = new Currency(sourceCurrency);
 
-        conversionHelper = new ConversionHelper(action, amount, target, source);
+        conversionHelper = new BuyCurrencyHelper(action, amount, target, source);
         conversionHelper.convert();
     }
 
