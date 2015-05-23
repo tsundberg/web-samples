@@ -10,13 +10,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static spark.Spark.*;
+import static spark.SparkBase.stop;
 
 public class Main {
     public static void main(String[] args) {
         port(8080);
         staticFileLocation("/public");
         convert();
+        requestNewPassword();
         awaitInitialization();
+    }
+
+    public static void shutdown(){
+        stop();
     }
 
     private static void convert() {
@@ -41,6 +47,17 @@ public class Main {
             map.put("fromCurrency", fromCurrencyStr);
 
             return new ModelAndView(map, "convert_result.mustache");
+        }, new MustacheTemplateEngine());
+    }
+
+    private static void requestNewPassword() {
+        post("/requestPassword", (request, response) -> {
+            String account = request.queryParams("account");
+
+            Map<String, String> map = new HashMap<>();
+            map.put("account", account);
+
+            return new ModelAndView(map, "password_confirmation.mustache");
         }, new MustacheTemplateEngine());
     }
 }
