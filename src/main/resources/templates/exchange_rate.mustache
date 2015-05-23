@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Exchange rate result</title>
+</head>
+
+<body onload="hideRate()">
+
+<script>
+    function hideRate() {
+        document.getElementById('waitingMessage').style.display = 'block';
+        document.getElementById('exchangeRate').style.display = 'none';
+        setTimeout(displayRate, {{sleep}});
+    }
+    function displayRate() {
+        document.getElementById('waitingMessage').style.display = 'none';
+        document.getElementById('exchangeRate').style.display = 'block';
+    }
+</script>
+
+<p id="waitingMessage">
+    Waiting for the slow exchange rate server. It will take {{sleep}} milliseconds until the answer is displayed.
+</p>
+
+<p id="exchangeRate">
+    The exchangeRate from {{from}} to {{to}} is {{exchangeRate}}
+</p>
+
+</body>
+
+</html>

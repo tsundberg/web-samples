@@ -8,6 +8,7 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import static spark.Spark.*;
 import static spark.SparkBase.stop;
@@ -16,13 +17,48 @@ public class Main {
     public static void main(String[] args) {
         port(8080);
         staticFileLocation("/public");
-        calculateCurrencyCost();
         requestNewPassword();
+        exchangeRate();
+        calculateCurrencyCost();
         awaitInitialization();
     }
 
-    public static void shutdown(){
+    public static void shutdown() {
         stop();
+    }
+
+    private static void requestNewPassword() {
+        post("/requestPassword", (request, response) -> {
+            String account = request.queryParams("account");
+
+            Map<String, String> map = new HashMap<>();
+            map.put("account", account);
+
+            return new ModelAndView(map, "password_confirmation.mustache");
+        }, new MustacheTemplateEngine());
+    }
+
+    private static void exchangeRate() {
+        post("/exchangeRate", (request, response) -> {
+            String from = request.queryParams("from");
+            String to = request.queryParams("to");
+
+            String sleep = slowResponse(10);
+
+            Map<String, String> map = new HashMap<>();
+            map.put("sleep", sleep);
+            map.put("from", from);
+            map.put("to", to);
+            map.put("exchangeRate", "2.07");
+
+
+            return new ModelAndView(map, "exchange_rate.mustache");
+        }, new MustacheTemplateEngine());
+    }
+
+    private static String slowResponse(int maxSeconds) {
+        Random random = new Random();
+        return "" + random.nextInt(maxSeconds * 1000);
     }
 
     private static void calculateCurrencyCost() {
@@ -47,17 +83,6 @@ public class Main {
             map.put("fromCurrency", fromCurrencyStr);
 
             return new ModelAndView(map, "buy_currency.mustache");
-        }, new MustacheTemplateEngine());
-    }
-
-    private static void requestNewPassword() {
-        post("/requestPassword", (request, response) -> {
-            String account = request.queryParams("account");
-
-            Map<String, String> map = new HashMap<>();
-            map.put("account", account);
-
-            return new ModelAndView(map, "password_confirmation.mustache");
         }, new MustacheTemplateEngine());
     }
 }
