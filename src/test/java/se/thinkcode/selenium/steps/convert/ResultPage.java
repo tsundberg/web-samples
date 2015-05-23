@@ -4,6 +4,7 @@ import se.thinkcode.selenium.actions.convert.Currency;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import se.thinkcode.selenium.steps.WrongPageException;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

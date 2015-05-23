@@ -20,15 +20,6 @@ public class ConversionHelper {
         this.amount = amount;
         this.to = to;
         this.from = from;
-
-        startApplication();
-
-        convert();
-    }
-
-    private void startApplication() {
-        String[] args = {};
-        Main.main(args);
     }
 
     public void convert() {
