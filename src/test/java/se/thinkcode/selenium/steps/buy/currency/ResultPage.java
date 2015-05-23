@@ -3,8 +3,8 @@ package se.thinkcode.selenium.steps.buy.currency;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import se.thinkcode.selenium.actions.buy.currency.Currency;
 
+import java.util.Currency;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,7 +25,7 @@ public class ResultPage {
         assertThat(actualTitle, is(expectedTitle));
 
         parseResult();
-        browser.quit(); // todo finns det ett bättre ställe att stänga browsern?
+        browser.quit();
     }
 
     private void parseResult() {
@@ -39,7 +39,7 @@ public class ResultPage {
             cost = Integer.parseInt(value);
 
             String currencyString = m.group(2);
-            currency = new Currency(currencyString);
+            currency = Currency.getInstance(currencyString);
         } else {
             throw new ResultPageException();
         }

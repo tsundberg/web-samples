@@ -2,10 +2,10 @@ package se.thinkcode.selenium;
 
 import se.thinkcode.selenium.actions.buy.currency.Action;
 import se.thinkcode.selenium.actions.buy.currency.BuyCurrency;
-import se.thinkcode.selenium.actions.buy.currency.Currency;
 import spark.ModelAndView;
 import spark.template.mustache.MustacheTemplateEngine;
 
+import java.util.Currency;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -70,8 +70,8 @@ public class Main {
 
             Action action = new Action(actionStr);
             int amount = Integer.parseInt(amountStr);
-            Currency to = new Currency(toCurrencyStr);
-            Currency from = new Currency(fromCurrencyStr);
+            Currency to = Currency.getInstance(toCurrencyStr);
+            Currency from = Currency.getInstance(fromCurrencyStr);
 
             BuyCurrency buyCurrency = new BuyCurrency(action, amount, to, from);
             int cost = buyCurrency.getCost();

@@ -20,7 +20,7 @@ public class ConfirmationPage {
         assertThat(actualTitle, is(expectedTitle));
 
         parseResult();
-        browser.quit(); // todo
+        browser.quit();
     }
 
     private void parseResult() {

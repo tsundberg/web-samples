@@ -4,9 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import se.thinkcode.selenium.TestHelper;
 import se.thinkcode.selenium.actions.buy.currency.Action;
-import se.thinkcode.selenium.actions.buy.currency.Currency;
 
 import java.io.IOException;
+import java.util.Currency;
 
 public class BuyCurrencyHelper {
     private final Action action;

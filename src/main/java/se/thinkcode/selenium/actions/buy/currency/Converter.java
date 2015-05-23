@@ -1,5 +1,7 @@
 package se.thinkcode.selenium.actions.buy.currency;
 
+import java.util.Currency;
+
 public class Converter {
     public static final double EUR_TO_USD = 0.81;
     private final Action action;
@@ -30,8 +32,8 @@ public class Converter {
     }
 
     private int getConversion() {
-        Currency USD = new Currency("USD");
-        Currency EUR = new Currency("EUR");
+        Currency USD = Currency.getInstance("USD");
+        Currency EUR = Currency.getInstance("EUR");
 
         if (from.equals(EUR) && to.equals(USD)) {
             return (int) (amount * EUR_TO_USD);

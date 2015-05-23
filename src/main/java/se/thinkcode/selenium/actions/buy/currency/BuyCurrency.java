@@ -1,5 +1,7 @@
 package se.thinkcode.selenium.actions.buy.currency;
 
+import java.util.Currency;
+
 public class BuyCurrency {
     private final Action action;
     private final int amount;

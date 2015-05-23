@@ -1,11 +1,12 @@
 package se.thinkcode.selenium.steps.buy.currency;
 
 import se.thinkcode.selenium.actions.buy.currency.Action;
-import se.thinkcode.selenium.actions.buy.currency.Currency;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import se.thinkcode.selenium.ApplicationHelper;
+
+import java.util.Currency;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -19,8 +20,8 @@ public class BuyCurrencySteps {
         ApplicationHelper.start();
 
         Action action = new Action(actionString);
-        Currency target = new Currency(targetCurrency);
-        Currency source = new Currency(sourceCurrency);
+        Currency target = Currency.getInstance(targetCurrency);
+        Currency source = Currency.getInstance(sourceCurrency);
 
         conversionHelper = new BuyCurrencyHelper(action, amount, target, source);
         conversionHelper.convert();
@@ -35,7 +36,7 @@ public class BuyCurrencySteps {
     public void should_it_cost_me(int expectedCost, String expected) throws Throwable {
         assertThat(actualCost, is(expectedCost));
 
-        Currency expectedCurrency = new Currency(expected);
+        Currency expectedCurrency = Currency.getInstance(expected);
         Currency actualCurrency = conversionHelper.getFromCurrency();
         assertThat(actualCurrency, is(expectedCurrency));
 

@@ -1,11 +1,12 @@
 package se.thinkcode.selenium.steps.buy.currency;
 
 import se.thinkcode.selenium.actions.buy.currency.Action;
-import se.thinkcode.selenium.actions.buy.currency.Currency;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.Currency;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -34,7 +35,7 @@ public class BuyCurrencyPage {
         WebElement selectElement = browser.findElement(By.id("toCurrency"));
         Select select = new Select(selectElement);
 
-        select.selectByValue(to.getCurrency());
+        select.selectByValue(to.getCurrencyCode());
     }
 
     public WebElement setWantedAmount(int amount) {
@@ -48,7 +49,7 @@ public class BuyCurrencyPage {
         WebElement selectElement = browser.findElement(By.id("fromCurrency"));
         Select select = new Select(selectElement);
 
-        select.selectByValue(from.getCurrency());
+        select.selectByValue(from.getCurrencyCode());
     }
 
     public ResultPage submitForm() {
