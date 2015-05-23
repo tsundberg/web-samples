@@ -40,7 +40,7 @@ public class Main {
             map.put("cost", "" + cost);
             map.put("fromCurrency", fromCurrencyStr);
 
-            return new ModelAndView(map, "result.mustache");
+            return new ModelAndView(map, "convert_result.mustache");
         }, new MustacheTemplateEngine());
     }
 }
