@@ -5,11 +5,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import se.thinkcode.selenium.WrongPageException;
 import se.thinkcode.selenium.steps.buy.currency.ResultPageException;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class ExchangeRatePage {
     private WebDriver browser;
@@ -21,12 +23,10 @@ public class ExchangeRatePage {
     public ExchangeRatePage(WebDriver browser) {
         this.browser = browser;
 
-        String title = browser.getTitle();
         String expectedTitle = "Exchange rate result";
+        String actualTitle = browser.getTitle();
 
-        if (!title.equals(expectedTitle)) {
-            throw new WrongPageException(title, expectedTitle);
-        }
+        assertThat(actualTitle, is(expectedTitle));
 
         parseExchangeRate();
     }

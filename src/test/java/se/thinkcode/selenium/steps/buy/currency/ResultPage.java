@@ -3,11 +3,13 @@ package se.thinkcode.selenium.steps.buy.currency;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import se.thinkcode.selenium.WrongPageException;
 import se.thinkcode.selenium.actions.buy.currency.Currency;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class ResultPage {
     private WebDriver browser;
@@ -16,15 +18,14 @@ public class ResultPage {
 
     public ResultPage(WebDriver browser) {
         this.browser = browser;
-        String actualTitle = browser.getTitle();
-        String expectedTitle = "Buy currency result";
 
-        if (!actualTitle.equals(expectedTitle)) {
-            throw new WrongPageException(actualTitle, expectedTitle);
-        }
+        String expectedTitle = "Buy currency result";
+        String actualTitle = browser.getTitle();
+
+        assertThat(actualTitle, is(expectedTitle));
 
         parseResult();
-        browser.quit();
+        browser.quit(); // todo finns det ett bättre ställe att stänga browsern?
     }
 
     private void parseResult() {

@@ -3,24 +3,26 @@ package se.thinkcode.selenium.actions.select.beverage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import se.thinkcode.selenium.WrongPageException;
 
 import java.util.LinkedList;
 import java.util.List;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class SelectBeveragePage {
     private final WebDriver browser;
 
     public SelectBeveragePage(WebDriver browser) {
         this.browser = browser;
-        browser.get("http://localhost:8080/selectBeverage.html");
 
-        String title = browser.getTitle();
+        String page = browser.getCurrentUrl() + "/selectBeverage.html";
+        browser.get(page);
+
         String expectedTitle = "Select beverage";
+        String actualTitle = browser.getTitle();
 
-        if (!title.equals(expectedTitle)) {
-            throw new WrongPageException(title, expectedTitle);
-        }
+        assertThat(actualTitle, is(expectedTitle));
     }
 
     public String getSelectedBeverage() {

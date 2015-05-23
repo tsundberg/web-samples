@@ -1,7 +1,5 @@
 package se.thinkcode.selenium;
 
-import se.thinkcode.selenium.Main;
-
 public class ApplicationHelper {
 
     public static void start() {

@@ -3,9 +3,11 @@ package se.thinkcode.selenium.actions.exchange.rate;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import se.thinkcode.selenium.WrongPageException;
 
 import java.util.Currency;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class RequestExchangeRatePage {
     private final WebDriver browser;
@@ -13,14 +15,13 @@ public class RequestExchangeRatePage {
     public RequestExchangeRatePage(WebDriver browser) {
         this.browser = browser;
 
-        browser.get("http://localhost:8080/exchangeRate.html");
+        String page = browser.getCurrentUrl() + "/exchangeRate.html";
+        browser.get(page);
 
-        String title = browser.getTitle();
+        String actualTitle = browser.getTitle();
         String expectedTitle = "Exchange rate";
 
-        if (!title.equals(expectedTitle)) {
-            throw new WrongPageException(title, expectedTitle);
-        }
+        assertThat(actualTitle, is(expectedTitle));
     }
 
     public ExchangeRatePage getExchangeRate(Currency from, Currency to) {

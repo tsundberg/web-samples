@@ -6,7 +6,9 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import se.thinkcode.selenium.ApplicationHelper;
+import se.thinkcode.selenium.TestHelper;
 
+import java.io.IOException;
 import java.util.Currency;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -16,9 +18,12 @@ public class ExchangeRateTest {
     private WebDriver browser;
 
     @Before
-    public void setUp() {
-        browser = new FirefoxDriver();
+    public void setUp() throws IOException {
         ApplicationHelper.start();
+
+        browser = new FirefoxDriver();
+        String baseUrl = TestHelper.getBaseUrl();
+        browser.get(baseUrl);
     }
 
     @After

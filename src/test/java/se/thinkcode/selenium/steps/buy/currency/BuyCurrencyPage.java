@@ -6,21 +6,23 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import se.thinkcode.selenium.WrongPageException;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class BuyCurrencyPage {
     private WebDriver browser;
 
     public BuyCurrencyPage(WebDriver browser) {
         this.browser = browser;
-        browser.get("http://localhost:8080/buyCurrency.html");
+
+        String page = browser.getCurrentUrl() + "/buyCurrency.html";
+        browser.get(page);
 
         String actualTitle = browser.getTitle();
         String expectedTitle = "Buy currency";
 
-        if (!actualTitle.equals(expectedTitle)) {
-            throw new WrongPageException(actualTitle, expectedTitle);
-        }
+        assertThat(actualTitle, is(expectedTitle));
     }
 
     public void selectAction(Action action) {

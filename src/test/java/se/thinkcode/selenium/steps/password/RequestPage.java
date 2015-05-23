@@ -3,7 +3,9 @@ package se.thinkcode.selenium.steps.password;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import se.thinkcode.selenium.WrongPageException;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class RequestPage {
     private WebDriver browser;
@@ -11,14 +13,15 @@ public class RequestPage {
 
     public RequestPage(WebDriver browser) {
         this.browser = browser;
-        browser.get("http://localhost:8080/requestPassword.html");
 
-        String actualTitle = browser.getTitle();
+        String page = browser.getCurrentUrl() + "/requestPassword.html";
+        browser.get(page);
+
+
         String expectedTitle = "Request new password";
+        String actualTitle = browser.getTitle();
 
-        if (!actualTitle.equals(expectedTitle)) {
-            throw new WrongPageException(actualTitle, expectedTitle);
-        }
+        assertThat(actualTitle, is(expectedTitle));
     }
 
     public void enterAccountName(String account) {

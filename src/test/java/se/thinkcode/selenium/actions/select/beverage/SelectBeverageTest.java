@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import se.thinkcode.selenium.ApplicationHelper;
+import se.thinkcode.selenium.TestHelper;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -17,9 +18,12 @@ public class SelectBeverageTest {
     private WebDriver browser;
 
     @Before
-    public void setUp() {
-        browser = new FirefoxDriver();
+    public void setUp() throws Exception {
         ApplicationHelper.start();
+
+        browser = new FirefoxDriver();
+        String baseUrl = TestHelper.getBaseUrl();
+        browser.get(baseUrl);
     }
 
     @After
