@@ -1,4 +1,4 @@
-package se.thinkcode.selenium.steps;
+package se.thinkcode.selenium.steps.convert;
 
 import se.thinkcode.selenium.actions.convert.Currency;
 import org.openqa.selenium.By;

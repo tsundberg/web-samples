@@ -1,4 +1,4 @@
-package se.thinkcode.selenium.steps;
+package se.thinkcode.selenium.steps.convert;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
