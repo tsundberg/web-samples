@@ -17,7 +17,7 @@ public class BuyCurrencyHelper {
     private WebDriver browser;
     private ResultPage resultPage;
 
-    public BuyCurrencyHelper(Action action, int amount, Currency to, Currency from) throws IOException {
+    public BuyCurrencyHelper(Action action, int amount, Currency to, Currency from) {
         this.action = action;
         this.amount = amount;
         this.to = to;

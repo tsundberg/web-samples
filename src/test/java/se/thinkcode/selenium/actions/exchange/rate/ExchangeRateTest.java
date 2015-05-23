@@ -18,7 +18,7 @@ public class ExchangeRateTest {
     private WebDriver browser;
 
     @Before
-    public void setUp() throws IOException {
+    public void setUp() {
         ApplicationHelper.start();
 
         browser = new FirefoxDriver();
@@ -33,19 +33,15 @@ public class ExchangeRateTest {
     }
 
     @Test
-    public void wait_for_slow_exchange_rate_server(){
-        RequestExchangeRatePage requestExchangeRatePage = new RequestExchangeRatePage(browser);
-
-        Currency from = Currency.getInstance("SEK");
-        Currency to = Currency.getInstance("RON");
-
+    public void wait_for_slow_exchange_rate_server() {
         float expected = 2.07f;
 
-        ExchangeRatePage exchangeRatePage  = requestExchangeRatePage.getExchangeRate(from, to);
+        RequestExchangeRatePage requestExchangeRatePage = new RequestExchangeRatePage(browser);
+        Currency from = Currency.getInstance("SEK");
+        Currency to = Currency.getInstance("RON");
+        ExchangeRatePage exchangeRatePage = requestExchangeRatePage.getExchangeRate(from, to);
 
-
-
-        float actual =         exchangeRatePage.getConversionRate();
+        float actual = exchangeRatePage.getConversionRate();
 
         assertThat(actual, is(expected));
     }

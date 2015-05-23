@@ -18,7 +18,7 @@ public class SelectBeverageTest {
     private WebDriver browser;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         ApplicationHelper.start();
 
         browser = new FirefoxDriver();

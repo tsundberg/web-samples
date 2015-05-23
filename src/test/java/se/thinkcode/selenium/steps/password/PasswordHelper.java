@@ -12,7 +12,7 @@ public class PasswordHelper {
     private WebDriver browser;
     private ConfirmationPage confirmationPage;
 
-    public PasswordHelper(String account) throws IOException {
+    public PasswordHelper(String account) {
         this.account = account;
         browser = new FirefoxDriver();
         String baseUrl = TestHelper.getBaseUrl();
