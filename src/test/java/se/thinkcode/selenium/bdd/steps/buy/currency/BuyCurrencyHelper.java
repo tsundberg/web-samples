@@ -22,7 +22,7 @@ public class BuyCurrencyHelper {
         this.to = to;
         this.from = from;
 
-        browser = new FirefoxDriver();
+        browser = TestHelper.getDefaultBrowser();
         String baseUrl = TestHelper.getBaseUrl();
         browser.get(baseUrl);
     }

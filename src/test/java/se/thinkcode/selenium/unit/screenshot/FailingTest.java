@@ -1,7 +1,7 @@
 package se.thinkcode.selenium.unit.screenshot;
 
 import org.junit.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.WebDriver;
 import se.thinkcode.selenium.ApplicationHelper;
 import se.thinkcode.selenium.ScreenShotRule;
 import se.thinkcode.selenium.TestHelper;
@@ -14,13 +14,13 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class FailingTest {
-    private FirefoxDriver browser;
+    private WebDriver browser;
 
     @Rule
     public ScreenShotRule screenShootRule;
 
     public FailingTest() {
-        browser = new FirefoxDriver();
+        browser = TestHelper.getDefaultBrowser();
         screenShootRule = new ScreenShotRule(browser);
     }
 

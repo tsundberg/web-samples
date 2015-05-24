@@ -20,7 +20,7 @@ public class ExchangeRateTest {
     public void setUp() {
         ApplicationHelper.start();
 
-        browser = new FirefoxDriver();
+        browser = TestHelper.getDefaultBrowser();
         String baseUrl = TestHelper.getBaseUrl();
         browser.get(baseUrl);
     }

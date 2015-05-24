@@ -12,7 +12,7 @@ public class PasswordHelper {
 
     public PasswordHelper(String account) {
         this.account = account;
-        browser = new FirefoxDriver();
+        browser = TestHelper.getDefaultBrowser();
         String baseUrl = TestHelper.getBaseUrl();
         browser.get(baseUrl);
     }
