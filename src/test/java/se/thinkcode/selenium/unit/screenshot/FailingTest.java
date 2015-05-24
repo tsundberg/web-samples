@@ -3,7 +3,6 @@ package se.thinkcode.selenium.unit.screenshot;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import se.thinkcode.selenium.ApplicationHelper;
-import se.thinkcode.selenium.ScreenShotRule;
 import se.thinkcode.selenium.TestHelper;
 import se.thinkcode.selenium.unit.radiobutton.SelectBeveragePage;
 

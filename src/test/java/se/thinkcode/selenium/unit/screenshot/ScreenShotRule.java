@@ -1,4 +1,4 @@
-package se.thinkcode.selenium;
+package se.thinkcode.selenium.unit.screenshot;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.rules.TestWatcher;
