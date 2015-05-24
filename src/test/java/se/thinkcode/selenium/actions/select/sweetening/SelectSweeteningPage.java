@@ -17,7 +17,7 @@ public class SelectSweeteningPage {
     public SelectSweeteningPage(WebDriver browser) {
         this.browser = browser;
 
-        String page = browser.getCurrentUrl() + "/selectSweetener.html";
+        String page = browser.getCurrentUrl() + "selectSweetener.html";
         browser.get(page);
 
         String expectedTitle = "Select sweetener";

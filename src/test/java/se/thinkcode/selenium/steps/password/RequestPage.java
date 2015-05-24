@@ -14,7 +14,7 @@ public class RequestPage {
     public RequestPage(WebDriver browser) {
         this.browser = browser;
 
-        String page = browser.getCurrentUrl() + "/requestPassword.html";
+        String page = browser.getCurrentUrl() + "requestPassword.html";
         browser.get(page);
 
 

@@ -35,7 +35,7 @@ public class HelloWorldTest {
     public void hello_world_no_page_object() {
         String expected = "Hello world!";
 
-        String page = browser.getCurrentUrl() + "/helloWorld.html";
+        String page = browser.getCurrentUrl() + "helloWorld.html";
         browser.get(page);
 
         WebElement headLine = browser.findElement(By.id("headline"));
