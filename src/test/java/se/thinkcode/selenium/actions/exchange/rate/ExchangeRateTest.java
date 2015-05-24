@@ -8,7 +8,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import se.thinkcode.selenium.ApplicationHelper;
 import se.thinkcode.selenium.TestHelper;
 
-import java.io.IOException;
 import java.util.Currency;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -41,7 +40,7 @@ public class ExchangeRateTest {
         Currency to = Currency.getInstance("RON");
         ExchangeRatePage exchangeRatePage = requestExchangeRatePage.getExchangeRate(from, to);
 
-        float actual = exchangeRatePage.getConversionRate();
+        float actual = exchangeRatePage.getExchangeRate();
 
         assertThat(actual, is(expected));
     }
