@@ -36,8 +36,8 @@ public class ExchangeRateTest {
         float expected = 2.07f;
 
         RequestExchangeRatePage requestExchangeRatePage = new RequestExchangeRatePage(browser);
-        Currency from = Currency.getInstance("SEK");
-        Currency to = Currency.getInstance("RON");
+        Currency from = Currency.getInstance("RON");
+        Currency to = Currency.getInstance("SEK");
         ExchangeRatePage exchangeRatePage = requestExchangeRatePage.getExchangeRate(from, to);
 
         float actual = exchangeRatePage.getExchangeRate();
