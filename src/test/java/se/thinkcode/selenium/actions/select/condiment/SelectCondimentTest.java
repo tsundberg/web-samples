@@ -1,4 +1,4 @@
-package se.thinkcode.selenium.actions.select.sweetening;
+package se.thinkcode.selenium.actions.select.condiment;
 
 import org.junit.After;
 import org.junit.Before;
@@ -14,7 +14,7 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class SelectSweeteningTest {
+public class SelectCondimentTest {
     private WebDriver browser;
 
     @Before
@@ -34,40 +34,40 @@ public class SelectSweeteningTest {
 
     @Test
     public void select_milk() {
-        SelectSweeteningPage selectSweeteningPage = new SelectSweeteningPage(browser);
+        SelectCondimentPage selectCondimentPage = new SelectCondimentPage(browser);
 
-        String initialSelection = selectSweeteningPage.getSelectedSweetening();
+        String initialSelection = selectCondimentPage.getSelectedCondiment();
         assertThat(initialSelection, is("none"));
 
-        selectSweeteningPage.selectMilk();
+        selectCondimentPage.selectMilk();
 
-        String selectedBeverage = selectSweeteningPage.getSelectedSweetening();
+        String selectedBeverage = selectCondimentPage.getSelectedCondiment();
         assertThat(selectedBeverage, is("milk"));
     }
 
     @Test
     public void select_sugar() {
-        SelectSweeteningPage selectSweeteningPage = new SelectSweeteningPage(browser);
+        SelectCondimentPage selectCondimentPage = new SelectCondimentPage(browser);
 
-        String initialSelection = selectSweeteningPage.getSelectedSweetening();
+        String initialSelection = selectCondimentPage.getSelectedCondiment();
         assertThat(initialSelection, is("none"));
 
-        selectSweeteningPage.selectSugar();
+        selectCondimentPage.selectSugar();
 
-        String selectedBeverage = selectSweeteningPage.getSelectedSweetening();
+        String selectedBeverage = selectCondimentPage.getSelectedCondiment();
         assertThat(selectedBeverage, is("sugar"));
     }
 
     @Test
     public void find_all_options() {
-        SelectSweeteningPage selectSweeteningPage = new SelectSweeteningPage(browser);
+        SelectCondimentPage selectCondimentPage = new SelectCondimentPage(browser);
 
         List<String> expected = new LinkedList<>();
         expected.add("none");
         expected.add("milk");
         expected.add("sugar");
         expected.add("milk & sugar");
-        List<String> actual = selectSweeteningPage.getAvailableSweeteners();
+        List<String> actual = selectCondimentPage.getAvailableCondiments();
 
         assertThat(actual, is(expected));
     }

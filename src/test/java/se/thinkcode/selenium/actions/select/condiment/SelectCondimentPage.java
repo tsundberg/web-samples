@@ -1,4 +1,4 @@
-package se.thinkcode.selenium.actions.select.sweetening;
+package se.thinkcode.selenium.actions.select.condiment;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,24 +11,24 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class SelectSweeteningPage {
+public class SelectCondimentPage {
     private final WebDriver browser;
 
-    public SelectSweeteningPage(WebDriver browser) {
+    public SelectCondimentPage(WebDriver browser) {
         this.browser = browser;
 
-        String page = browser.getCurrentUrl() + "selectSweetener.html";
+        String page = browser.getCurrentUrl() + "selectCondiment.html";
         browser.get(page);
 
-        String expectedTitle = "Select sweetener";
+        String expectedTitle = "Select condiment";
         String actualTitle = browser.getTitle();
 
         assertThat(actualTitle, is(expectedTitle));
     }
 
-    public String getSelectedSweetening() {
-        WebElement sweeteners = browser.findElement(By.id("sweeteners"));
-        Select select = new Select(sweeteners);
+    public String getSelectedCondiment() {
+        WebElement condiments = browser.findElement(By.id("condiments"));
+        Select select = new Select(condiments);
 
         WebElement selected = select.getFirstSelectedOption();
 
@@ -36,22 +36,22 @@ public class SelectSweeteningPage {
     }
 
     public void selectMilk() {
-        WebElement sweeteners = browser.findElement(By.id("sweeteners"));
-        Select select = new Select(sweeteners);
+        WebElement condiments = browser.findElement(By.id("condiments"));
+        Select select = new Select(condiments);
 
         select.selectByValue("milk");
     }
 
     public void selectSugar() {
-        WebElement sweeteners = browser.findElement(By.id("sweeteners"));
-        Select select = new Select(sweeteners);
+        WebElement condiments = browser.findElement(By.id("condiments"));
+        Select select = new Select(condiments);
 
         select.selectByValue("sugar");
     }
 
-    public List<String> getAvailableSweeteners() {
-        WebElement sweeteners = browser.findElement(By.id("sweeteners"));
-        Select select = new Select(sweeteners);
+    public List<String> getAvailableCondiments() {
+        WebElement condiments = browser.findElement(By.id("condiments"));
+        Select select = new Select(condiments);
 
         List<WebElement> options = select.getOptions();
 
