@@ -15,12 +15,18 @@ import static spark.SparkBase.stop;
 
 public class Main {
     public static void main(String[] args) {
-        port(8080);
+        int port = getPort();
+        port(port);
         staticFileLocation("/public");
         requestNewPassword();
         exchangeRate();
         calculateCurrencyCost();
         awaitInitialization();
+    }
+
+    private static int getPort() {
+        String port = System.getProperty("port", "8080");
+        return Integer.parseInt(port);
     }
 
     public static void shutdown() {
