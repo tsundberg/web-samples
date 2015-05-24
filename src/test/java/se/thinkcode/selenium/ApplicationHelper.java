@@ -3,8 +3,7 @@ package se.thinkcode.selenium;
 public class ApplicationHelper {
 
     public static void start() {
-        String[] args = {};
-        Main.main(args);
+        Main.main(new String[]{});
     }
 
     public static void shutdown() {
