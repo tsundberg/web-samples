@@ -1,7 +1,6 @@
 package se.thinkcode.selenium.bdd.steps.buy.currency;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import se.thinkcode.selenium.TestHelper;
 import se.thinkcode.selenium.actions.buy.currency.Action;
 
