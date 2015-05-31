@@ -1,17 +1,7 @@
-package se.thinkcode.selenium.unit.cross;
+package se.thinkcode.selenium.unit.crossbrowser;
 
-import com.saucelabs.common.SauceOnDemandAuthentication;
 import com.saucelabs.common.SauceOnDemandSessionIdProvider;
-import com.saucelabs.junit.SauceOnDemandTestWatcher;
-import org.junit.*;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import se.thinkcode.selenium.TestHelper;
-import se.thinkcode.selenium.unit.locate.HelloWorldPage;
-
-import java.util.Collection;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

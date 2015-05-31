@@ -1,4 +1,4 @@
-package se.thinkcode.selenium.unit.cross;
+package se.thinkcode.selenium.unit.crossbrowser;
 
 import org.junit.After;
 import org.junit.Before;
