@@ -3,6 +3,7 @@ package se.thinkcode.selenium;
 import se.thinkcode.selenium.actions.buy.currency.Action;
 import se.thinkcode.selenium.actions.buy.currency.BuyCurrency;
 import spark.ModelAndView;
+import spark.QueryParamsMap;
 import spark.template.mustache.MustacheTemplateEngine;
 
 import java.util.Currency;
@@ -19,6 +20,7 @@ public class Main {
         port(port);
         staticFileLocation("/public");
         requestNewPassword();
+        selectColor();
         exchangeRate();
         calculateCurrencyCost();
         awaitInitialization();
@@ -41,6 +43,17 @@ public class Main {
             map.put("account", account);
 
             return new ModelAndView(map, "password_confirmation.mustache");
+        }, new MustacheTemplateEngine());
+    }
+
+    private static void selectColor() {
+        post("/selectColor", (request, response) -> {
+            QueryParamsMap colorQueryMap = request.queryMap("color");
+
+            Map<String, String[]> map = new HashMap<>();
+            map.put("colors", colorQueryMap.values());
+
+            return new ModelAndView(map, "selected_colors.mustache");
         }, new MustacheTemplateEngine());
     }
 
