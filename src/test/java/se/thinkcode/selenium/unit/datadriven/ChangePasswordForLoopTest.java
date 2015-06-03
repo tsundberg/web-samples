@@ -32,7 +32,7 @@ public class ChangePasswordForLoopTest {
     }
 
     @Test
-    public void change_password() {
+    public void request_new_password() {
         for (String account : accounts()) {
             String baseUrl = TestHelper.getBaseUrl();
             browser.get(baseUrl);

@@ -43,7 +43,7 @@ public class ChangePasswordTest {
     }
 
     @Test
-    public void change_password() {
+    public void request_new_password() {
         String expected = "A new password has been sent to " + account;
         RequestNewPasswordPage requestNewPasswordPage = new RequestNewPasswordPage(browser);
 
