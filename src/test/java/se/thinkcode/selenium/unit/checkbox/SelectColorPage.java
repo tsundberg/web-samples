@@ -37,7 +37,7 @@ public class SelectColorPage {
 
     public SelectedColorPage submit() {
         WebElement checkbox = browser.findElement(By.name("color"));
-        ;
+
         checkbox.submit();
         return new SelectedColorPage(browser);
     }
