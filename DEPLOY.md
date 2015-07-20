@@ -1,6 +1,6 @@
 # Deploy
 
-Deploy at Herou
+Deploy at Heroku
 
 ```
 git push heroku
