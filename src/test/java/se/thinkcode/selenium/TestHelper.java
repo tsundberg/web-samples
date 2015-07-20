@@ -31,8 +31,8 @@ public class TestHelper {
 
         List<WebDriver[]> browsers = new LinkedList<>();
         browsers.add(new WebDriver[]{new HtmlUnitDriver(true)});
-        browsers.add(new WebDriver[]{new SafariDriver()});
-        browsers.add(new WebDriver[]{new ChromeDriver()});
+        // browsers.add(new WebDriver[]{new SafariDriver()});
+        // browsers.add(new WebDriver[]{new ChromeDriver()});
         browsers.add(new WebDriver[]{new FirefoxDriver()});
 
         return browsers;
