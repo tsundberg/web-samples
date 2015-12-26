@@ -22,6 +22,7 @@ public class Main {
         selectColor();
         exchangeRate();
         calculateCurrencyCost();
+        about();
         awaitInitialization();
     }
 
@@ -101,6 +102,12 @@ public class Main {
             map.put("fromCurrency", fromCurrencyStr);
 
             return new ModelAndView(map, "buy_currency.mustache");
+        }, new MustacheTemplateEngine());
+    }
+
+    private static void about() {
+        get("/about", (request, response) -> {
+            return new ModelAndView(null, "about.mustache");
         }, new MustacheTemplateEngine());
     }
 }
