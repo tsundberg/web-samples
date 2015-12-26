@@ -12,7 +12,6 @@ import java.util.Map;
 import java.util.Random;
 
 import static spark.Spark.*;
-import static spark.SparkBase.stop;
 
 public class Main {
     public static void main(String[] args) {
