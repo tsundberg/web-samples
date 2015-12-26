@@ -6,11 +6,13 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import se.thinkcode.selenium.ApplicationHelper;
 import se.thinkcode.selenium.TestHelper;
+import se.thinkcode.selenium.unit.IndexPage;
 
 import static org.junit.Assert.assertTrue;
 
 public class SelectColorTest {
     private WebDriver browser;
+    private SelectColorPage selectColor;
 
     @Before
     public void setUp() {
@@ -19,6 +21,8 @@ public class SelectColorTest {
         browser = TestHelper.getDefaultBrowser();
         String baseUrl = TestHelper.getBaseUrl();
         browser.get(baseUrl);
+        IndexPage indexPage = new IndexPage(browser);
+        selectColor = indexPage.selectColor();
     }
 
     @After
@@ -28,9 +32,7 @@ public class SelectColorTest {
     }
 
     @Test
-    public void select_color() {
-        SelectColorPage selectColor = new SelectColorPage(browser);
-
+    public void select_green() {
         selectColor.selectGreen();
         SelectedColorPage selectedColor = selectColor.submit();
 

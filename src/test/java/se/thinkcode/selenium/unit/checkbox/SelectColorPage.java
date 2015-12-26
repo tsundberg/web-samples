@@ -15,9 +15,6 @@ public class SelectColorPage {
     public SelectColorPage(WebDriver browser) {
         this.browser = browser;
 
-        String page = browser.getCurrentUrl() + "selectColor.html";
-        browser.get(page);
-
         String expectedTitle = "Select color";
         String actualTitle = browser.getTitle();
 

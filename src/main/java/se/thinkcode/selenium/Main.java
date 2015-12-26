@@ -19,9 +19,10 @@ public class Main {
         port(port);
         staticFileLocation("/public");
         index();
+        selectColor();
+        selectedColor();
         selectCondiment();
         requestNewPassword();
-        selectColor();
         exchangeRate();
         calculateCurrencyCost();
         about();
@@ -43,6 +44,23 @@ public class Main {
         }, new MustacheTemplateEngine());
     }
 
+    private static void selectColor() {
+        get("/selectColor", (request, response) -> {
+            return new ModelAndView(null, "select_color.mustache");
+        }, new MustacheTemplateEngine());
+    }
+
+    private static void selectedColor() {
+        post("/selectColor", (request, response) -> {
+            QueryParamsMap colorQueryMap = request.queryMap("color");
+
+            Map<String, String[]> map = new HashMap<>();
+            map.put("colors", colorQueryMap.values());
+
+            return new ModelAndView(map, "selected_colors.mustache");
+        }, new MustacheTemplateEngine());
+    }
+
     private static void selectCondiment() {
         get("/selectCondiment", (request, response) -> {
             return new ModelAndView(null, "select_condiment.mustache");
@@ -57,17 +75,6 @@ public class Main {
             map.put("account", account);
 
             return new ModelAndView(map, "password_confirmation.mustache");
-        }, new MustacheTemplateEngine());
-    }
-
-    private static void selectColor() {
-        post("/selectColor", (request, response) -> {
-            QueryParamsMap colorQueryMap = request.queryMap("color");
-
-            Map<String, String[]> map = new HashMap<>();
-            map.put("colors", colorQueryMap.values());
-
-            return new ModelAndView(map, "selected_colors.mustache");
         }, new MustacheTemplateEngine());
     }
 
