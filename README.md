@@ -8,7 +8,6 @@ be confused by too many details.
 
 ### Maven
 
-
 Build from a command line prompt:
 
 ```
@@ -20,12 +19,22 @@ mvn clean package
 Run the self contained jar:
 
 ```
-java -jar target/example-application-1.0.0-SNAPSHOT.jar 
+java -jar target/web-samples-1.0.0.jar 
 ```
+
+### Access
 
 Access it at [http://localhost:8080](http://localhost:8080)
 
 It is also deployed at [http://selenium.thinkcode.se/](http://selenium.thinkcode.se/)
+
+### Build and run
+
+As a one liner:
+
+```
+mvn clean package; java -jar target/web-samples-1.0.0.jar
+```
 
 ## References
 
