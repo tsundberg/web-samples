@@ -33,7 +33,7 @@ public class HelloWorldTest {
 
     @Test
     public void hello_world_no_page_object() {
-        String expected = "Hello world!";
+        String expected = "Hello, world!";
 
         String page = browser.getCurrentUrl() + "helloWorld.html";
         browser.get(page);
@@ -47,7 +47,7 @@ public class HelloWorldTest {
 
     @Test
     public void hello_world_page_object() {
-        String expected = "Hello world!";
+        String expected = "Hello, world!";
         HelloWorldPage helloWorldPage = new HelloWorldPage(browser);
 
         String actual = helloWorldPage.getHeadLine();

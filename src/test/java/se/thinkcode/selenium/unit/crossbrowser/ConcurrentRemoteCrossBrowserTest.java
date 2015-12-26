@@ -34,7 +34,7 @@ public class ConcurrentRemoteCrossBrowserTest implements SauceOnDemandSessionIdP
 
     @Test
     public void hello_world() throws Exception {
-        String expected = "Hello world!";
+        String expected = "Hello, world!";
         HelloWorldPage helloWorldPage = new HelloWorldPage(browser);
 
         String actual = helloWorldPage.getHeadLine();

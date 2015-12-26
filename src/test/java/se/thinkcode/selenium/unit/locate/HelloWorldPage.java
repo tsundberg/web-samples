@@ -16,7 +16,7 @@ public class HelloWorldPage {
         String page = browser.getCurrentUrl() + "helloWorld.html";
         browser.get(page);
 
-        String expectedTitle = "Hello world";
+        String expectedTitle = "Hello, world";
         String actualTitle = browser.getTitle();
 
         assertThat(actualTitle, is(expectedTitle));

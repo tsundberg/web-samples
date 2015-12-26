@@ -39,7 +39,7 @@ public class CrossBrowserTest {
 
     @Test
     public void hello_world() {
-        String expected = "Hello world!";
+        String expected = "Hello, world!";
         HelloWorldPage helloWorldPage = new HelloWorldPage(browser);
 
         String actual = helloWorldPage.getHeadLine();
