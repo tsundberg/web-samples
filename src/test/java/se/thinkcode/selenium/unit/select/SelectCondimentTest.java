@@ -4,9 +4,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import se.thinkcode.selenium.ApplicationHelper;
 import se.thinkcode.selenium.TestHelper;
+import se.thinkcode.selenium.unit.IndexPage;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -16,6 +16,7 @@ import static org.junit.Assert.assertThat;
 
 public class SelectCondimentTest {
     private WebDriver browser;
+    private SelectCondimentPage selectCondimentPage;
 
     @Before
     public void setUp() {
@@ -24,6 +25,8 @@ public class SelectCondimentTest {
         browser = TestHelper.getDefaultBrowser();
         String baseUrl = TestHelper.getBaseUrl();
         browser.get(baseUrl);
+        IndexPage index = new IndexPage(browser);
+        selectCondimentPage = index.selectCondiment();
     }
 
     @After
@@ -34,8 +37,6 @@ public class SelectCondimentTest {
 
     @Test
     public void select_milk() {
-        SelectCondimentPage selectCondimentPage = new SelectCondimentPage(browser);
-
         String initialSelection = selectCondimentPage.getSelectedCondiment();
         assertThat(initialSelection, is("none"));
 
@@ -43,12 +44,11 @@ public class SelectCondimentTest {
 
         String selectedBeverage = selectCondimentPage.getSelectedCondiment();
         assertThat(selectedBeverage, is("milk"));
+
     }
 
     @Test
     public void select_sugar() {
-        SelectCondimentPage selectCondimentPage = new SelectCondimentPage(browser);
-
         String initialSelection = selectCondimentPage.getSelectedCondiment();
         assertThat(initialSelection, is("none"));
 
@@ -60,8 +60,6 @@ public class SelectCondimentTest {
 
     @Test
     public void find_all_options() {
-        SelectCondimentPage selectCondimentPage = new SelectCondimentPage(browser);
-
         List<String> expected = new LinkedList<>();
         expected.add("none");
         expected.add("milk");

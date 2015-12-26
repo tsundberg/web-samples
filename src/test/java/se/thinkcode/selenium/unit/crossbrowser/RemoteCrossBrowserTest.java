@@ -34,7 +34,7 @@ public class RemoteCrossBrowserTest implements SauceOnDemandSessionIdProvider {
     @Test
     @Ignore
     public void hello_world() {
-        String expected = "Hello world!";
+        String expected = "Hello, world!";
         HelloWorldPage helloWorldPage = new HelloWorldPage(browser);
 
         String actual = helloWorldPage.getHeadLine();

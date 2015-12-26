@@ -17,9 +17,6 @@ public class SelectCondimentPage {
     public SelectCondimentPage(WebDriver browser) {
         this.browser = browser;
 
-        String page = browser.getCurrentUrl() + "selectCondiment.html";
-        browser.get(page);
-
         String expectedTitle = "Select condiment";
         String actualTitle = browser.getTitle();
 

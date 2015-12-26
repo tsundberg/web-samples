@@ -19,6 +19,7 @@ public class Main {
         port(port);
         staticFileLocation("/public");
         index();
+        selectCondiment();
         requestNewPassword();
         selectColor();
         exchangeRate();
@@ -39,6 +40,12 @@ public class Main {
     private static void index() {
         get("/", (request, response) -> {
             return new ModelAndView(null, "index.mustache");
+        }, new MustacheTemplateEngine());
+    }
+
+    private static void selectCondiment() {
+        get("/selectCondiment", (request, response) -> {
+            return new ModelAndView(null, "select_condiment.mustache");
         }, new MustacheTemplateEngine());
     }
 
