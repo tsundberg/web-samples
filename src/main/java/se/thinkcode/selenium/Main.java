@@ -18,6 +18,7 @@ public class Main {
         int port = getPort();
         port(port);
         staticFileLocation("/public");
+        index();
         requestNewPassword();
         selectColor();
         exchangeRate();
@@ -33,6 +34,12 @@ public class Main {
 
     public static void shutdown() {
         stop();
+    }
+
+    private static void index() {
+        get("/", (request, response) -> {
+            return new ModelAndView(null, "index.mustache");
+        }, new MustacheTemplateEngine());
     }
 
     private static void requestNewPassword() {
