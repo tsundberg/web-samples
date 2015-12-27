@@ -15,9 +15,6 @@ public class RequestExchangeRatePage {
     public RequestExchangeRatePage(WebDriver browser) {
         this.browser = browser;
 
-        String page = browser.getCurrentUrl() + "exchangeRate.html";
-        browser.get(page);
-
         String actualTitle = browser.getTitle();
         String expectedTitle = "Exchange rate";
 

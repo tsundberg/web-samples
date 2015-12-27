@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import se.thinkcode.selenium.ApplicationHelper;
 import se.thinkcode.selenium.TestHelper;
+import se.thinkcode.selenium.unit.IndexPage;
 
 import java.util.Currency;
 
@@ -35,7 +36,9 @@ public class ExchangeRateTest {
     public void wait_for_slow_exchange_rate_server() {
         float expected = 2.07f;
 
-        RequestExchangeRatePage requestExchangeRatePage = new RequestExchangeRatePage(browser);
+        IndexPage indexPage = new IndexPage(browser);
+        RequestExchangeRatePage requestExchangeRatePage = indexPage.requestExchangeRate();
+
         Currency from = Currency.getInstance("RON");
         Currency to = Currency.getInstance("SEK");
         ExchangeRatePage exchangeRatePage = requestExchangeRatePage.getExchangeRate(from, to);

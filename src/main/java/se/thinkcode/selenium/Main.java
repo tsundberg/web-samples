@@ -28,6 +28,7 @@ public class Main {
         alert();
         requestNewPassword();
         exchangeRate();
+        exchangeRateResult();
         newPopupPage();
         buyCurrency();
         calculateCurrencyCost();
@@ -109,6 +110,12 @@ public class Main {
     }
 
     private static void exchangeRate() {
+        get("/exchangeRate", (request, response) -> {
+            return new ModelAndView(null, "exchange_rate.mustache");
+        }, new MustacheTemplateEngine());
+    }
+
+    private static void exchangeRateResult() {
         post("/exchangeRate", (request, response) -> {
             String from = request.queryParams("from");
             String to = request.queryParams("to");

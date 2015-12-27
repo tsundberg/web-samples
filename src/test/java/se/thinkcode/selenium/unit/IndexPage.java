@@ -10,6 +10,7 @@ import se.thinkcode.selenium.unit.locate.HelloWorldPage;
 import se.thinkcode.selenium.unit.popup.AlertPage;
 import se.thinkcode.selenium.unit.radiobutton.SelectBeveragePage;
 import se.thinkcode.selenium.unit.select.SelectCondimentPage;
+import se.thinkcode.selenium.unit.slow.resource.RequestExchangeRatePage;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -76,5 +77,12 @@ public class IndexPage {
         requestNewPassword.click();
 
         return new RequestPasswordPage(browser);
+    }
+
+    public RequestExchangeRatePage requestExchangeRate() {
+        WebElement requestExchangeRate = browser.findElement(By.id("requestExchangeRate"));
+        requestExchangeRate.click();
+
+        return new RequestExchangeRatePage(browser);
     }
 }
