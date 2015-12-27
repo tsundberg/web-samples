@@ -3,6 +3,7 @@ package se.thinkcode.selenium.bdd.steps.buy.currency;
 import org.openqa.selenium.WebDriver;
 import se.thinkcode.selenium.TestHelper;
 import se.thinkcode.selenium.actions.buy.currency.Action;
+import se.thinkcode.selenium.unit.IndexPage;
 
 import java.util.Currency;
 
@@ -27,7 +28,8 @@ public class BuyCurrencyHelper {
     }
 
     public void convert() {
-        BuyCurrencyPage conversionPage = new BuyCurrencyPage(browser);
+        IndexPage indexPage = new IndexPage(browser);
+        BuyCurrencyPage conversionPage = indexPage.buyCurrency();
 
         conversionPage.selectAction(action);
         conversionPage.selectWantedCurrency(to);

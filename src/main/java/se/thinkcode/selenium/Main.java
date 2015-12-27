@@ -26,6 +26,7 @@ public class Main {
         alert();
         requestNewPassword();
         exchangeRate();
+        buyCurrency();
         calculateCurrencyCost();
         about();
         awaitInitialization();
@@ -115,6 +116,12 @@ public class Main {
         return "" + random.nextInt(maxSeconds * 1000);
     }
 
+    private static void buyCurrency() {
+        get("/buyCurrency", (request, response) -> {
+            return new ModelAndView(null, "buy_currency.mustache");
+        }, new MustacheTemplateEngine());
+    }
+
     private static void calculateCurrencyCost() {
         post("/calculateCurrencyCost", (request, response) -> {
             String actionStr = request.queryParams("action");
@@ -136,7 +143,7 @@ public class Main {
             map.put("cost", "" + cost);
             map.put("fromCurrency", fromCurrencyStr);
 
-            return new ModelAndView(map, "buy_currency.mustache");
+            return new ModelAndView(map, "currency_cost.mustache");
         }, new MustacheTemplateEngine());
     }
 

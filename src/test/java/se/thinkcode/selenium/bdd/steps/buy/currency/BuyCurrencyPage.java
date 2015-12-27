@@ -17,9 +17,6 @@ public class BuyCurrencyPage {
     public BuyCurrencyPage(WebDriver browser) {
         this.browser = browser;
 
-        String page = browser.getCurrentUrl() + "buyCurrency.html";
-        browser.get(page);
-
         String actualTitle = browser.getTitle();
         String expectedTitle = "Buy currency";
 
