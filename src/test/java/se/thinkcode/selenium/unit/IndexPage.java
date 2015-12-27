@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import se.thinkcode.selenium.unit.checkbox.SelectColorPage;
+import se.thinkcode.selenium.unit.locate.HelloWorldPage;
 import se.thinkcode.selenium.unit.popup.AlertPage;
 import se.thinkcode.selenium.unit.select.SelectCondimentPage;
 
@@ -40,10 +41,16 @@ public class IndexPage {
     }
 
     public AlertPage alert() {
-        WebElement selectedCondiment = browser.findElement(By.id("alert"));
-        selectedCondiment.click();
+        WebElement alert = browser.findElement(By.id("alert"));
+        alert.click();
 
         return new AlertPage(browser);
     }
 
+    public HelloWorldPage helloWorld() {
+        WebElement helloWorld = browser.findElement(By.id("helloWorld"));
+        helloWorld.click();
+
+        return new HelloWorldPage(browser);
+    }
 }

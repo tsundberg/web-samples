@@ -8,6 +8,7 @@ import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import se.thinkcode.selenium.ApplicationHelper;
 import se.thinkcode.selenium.TestHelper;
+import se.thinkcode.selenium.unit.IndexPage;
 import se.thinkcode.selenium.unit.locate.HelloWorldPage;
 
 import java.util.Collection;
@@ -40,7 +41,8 @@ public class CrossBrowserTest {
     @Test
     public void hello_world() {
         String expected = "Hello, world!";
-        HelloWorldPage helloWorldPage = new HelloWorldPage(browser);
+        IndexPage indexPage = new IndexPage(browser);
+        HelloWorldPage helloWorldPage = indexPage.helloWorld();
 
         String actual = helloWorldPage.getHeadLine();
 

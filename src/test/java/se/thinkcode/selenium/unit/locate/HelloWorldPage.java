@@ -13,9 +13,6 @@ public class HelloWorldPage {
     public HelloWorldPage(WebDriver browser) {
         this.browser = browser;
 
-        String page = browser.getCurrentUrl() + "helloWorld.html";
-        browser.get(page);
-
         String expectedTitle = "Hello, world";
         String actualTitle = browser.getTitle();
 

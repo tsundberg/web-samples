@@ -3,9 +3,6 @@ package se.thinkcode.selenium.unit.crossbrowser;
 import com.saucelabs.common.SauceOnDemandSessionIdProvider;
 import org.openqa.selenium.WebDriver;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-
 // @RunWith(ConcurrentParameterized.class)
 public class ConcurrentRemoteCrossBrowserTest implements SauceOnDemandSessionIdProvider {
 
@@ -35,7 +32,8 @@ public class ConcurrentRemoteCrossBrowserTest implements SauceOnDemandSessionIdP
     @Test
     public void hello_world() throws Exception {
         String expected = "Hello, world!";
-        HelloWorldPage helloWorldPage = new HelloWorldPage(browser);
+        IndexPage indexPage = new IndexPage(browser);
+        HelloWorldPage helloWorldPage = indexPage.helloWorld();
 
         String actual = helloWorldPage.getHeadLine();
 
