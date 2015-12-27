@@ -28,6 +28,7 @@ public class Main {
         alert();
         requestNewPassword();
         exchangeRate();
+        newPopupPage();
         buyCurrency();
         calculateCurrencyCost();
         about();
@@ -128,6 +129,12 @@ public class Main {
     private static String slowResponse(int maxSeconds) {
         Random random = new Random();
         return "" + random.nextInt(maxSeconds * 1000);
+    }
+
+    private static void newPopupPage() {
+        get("/newPopupPage", (request, response) -> {
+            return new ModelAndView(null, "new_popup_page.mustache");
+        }, new MustacheTemplateEngine());
     }
 
     private static void buyCurrency() {
