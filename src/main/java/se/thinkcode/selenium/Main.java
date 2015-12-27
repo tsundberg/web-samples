@@ -122,7 +122,7 @@ public class Main {
             map.put("exchangeRate", "2.07");
 
 
-            return new ModelAndView(map, "exchange_rate.mustache");
+            return new ModelAndView(map, "exchange_rate_result.mustache");
         }, new MustacheTemplateEngine());
     }
 
