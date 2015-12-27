@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import se.thinkcode.selenium.unit.checkbox.SelectColorPage;
+import se.thinkcode.selenium.unit.popup.AlertPage;
 import se.thinkcode.selenium.unit.select.SelectCondimentPage;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -36,6 +37,13 @@ public class IndexPage {
         selectedCondiment.click();
 
         return new SelectCondimentPage(browser);
+    }
+
+    public AlertPage alert() {
+        WebElement selectedCondiment = browser.findElement(By.id("alert"));
+        selectedCondiment.click();
+
+        return new AlertPage(browser);
     }
 
 }

@@ -14,9 +14,6 @@ public class AlertPage {
     public AlertPage(WebDriver browser) {
         this.browser = browser;
 
-        String page = browser.getCurrentUrl() + "alert.html";
-        browser.get(page);
-
         String expectedTitle = "Java script alerts";
         String actualTitle = browser.getTitle();
 

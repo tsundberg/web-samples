@@ -22,6 +22,7 @@ public class Main {
         selectColor();
         selectedColor();
         selectCondiment();
+        alert();
         requestNewPassword();
         exchangeRate();
         calculateCurrencyCost();
@@ -64,6 +65,12 @@ public class Main {
     private static void selectCondiment() {
         get("/selectCondiment", (request, response) -> {
             return new ModelAndView(null, "select_condiment.mustache");
+        }, new MustacheTemplateEngine());
+    }
+
+    private static void alert() {
+        get("/alert", (request, response) -> {
+            return new ModelAndView(null, "alert.mustache");
         }, new MustacheTemplateEngine());
     }
 
