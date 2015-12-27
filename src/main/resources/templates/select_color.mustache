@@ -5,18 +5,20 @@
 
     {{> header}}
 
-    <div class="container">
-        <div class="col-sm-9">
-            <br>
-            <form action="selectColor" method="post">
-                Select the colors you want:<br>
-                <input type="checkbox" name="color" value="red">Red<br>
-                <input type="checkbox" name="color" value="blue">Blue<br>
-                <input type="checkbox" name="color" value="green">Green
-                <br><br>
-                <input type="submit" value="Submit">
-            </form>
-        </div>
-    </div>
+<body>
 
-    {{> footer}}
+<div class="container">
+    <div class="col-sm-9">
+        <br>
+        <form action="selectColor" method="post">
+            Select the colors you want:<br>
+            <input type="checkbox" name="color" value="red">Red<br>
+            <input type="checkbox" name="color" value="blue">Blue<br>
+            <input type="checkbox" name="color" value="green">Green
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+
+{{> footer}}
