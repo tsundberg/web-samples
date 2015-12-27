@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import se.thinkcode.selenium.ApplicationHelper;
 import se.thinkcode.selenium.TestHelper;
+import se.thinkcode.selenium.unit.IndexPage;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -32,9 +33,11 @@ public class ChangePasswordTest {
     @Test
     public void request_new_password() {
         String expected = "A new password has been sent to Bob";
-        RequestNewPasswordPage requestNewPasswordPage = new RequestNewPasswordPage(browser);
 
-        ConfirmPasswordSentPage confirmPasswordSentPage = requestNewPasswordPage.requestNewPassword("Bob");
+        IndexPage indexPage = new IndexPage(browser);
+        RequestPasswordPage requestPasswordPage =  indexPage.requestPassword();
+
+        ConfirmPasswordSentPage confirmPasswordSentPage = requestPasswordPage.requestNewPassword("Bob");
 
         String actual = confirmPasswordSentPage.getConfirmationMessage();
 

@@ -6,8 +6,9 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import se.thinkcode.selenium.ApplicationHelper;
 import se.thinkcode.selenium.TestHelper;
+import se.thinkcode.selenium.unit.IndexPage;
 import se.thinkcode.selenium.unit.form.ConfirmPasswordSentPage;
-import se.thinkcode.selenium.unit.form.RequestNewPasswordPage;
+import se.thinkcode.selenium.unit.form.RequestPasswordPage;
 
 import java.util.Collection;
 import java.util.LinkedList;
@@ -39,8 +40,9 @@ public class ChangePasswordForLoopTest {
 
             String expected = "A new password has been sent to " + account;
 
-            RequestNewPasswordPage requestNewPasswordPage = new RequestNewPasswordPage(browser);
-            ConfirmPasswordSentPage confirmPasswordSentPage = requestNewPasswordPage.requestNewPassword(account);
+            IndexPage indexPage = new IndexPage(browser);
+            RequestPasswordPage requestPasswordPage = indexPage.requestPassword();
+            ConfirmPasswordSentPage confirmPasswordSentPage = requestPasswordPage.requestNewPassword(account);
 
             String actual = confirmPasswordSentPage.getConfirmationMessage();
 

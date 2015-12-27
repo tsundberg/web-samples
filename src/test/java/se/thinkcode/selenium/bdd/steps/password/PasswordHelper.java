@@ -1,8 +1,8 @@
 package se.thinkcode.selenium.bdd.steps.password;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import se.thinkcode.selenium.TestHelper;
+import se.thinkcode.selenium.unit.IndexPage;
 
 public class PasswordHelper {
     private String account;
@@ -18,6 +18,9 @@ public class PasswordHelper {
     }
 
     public void sendRequest() {
+        IndexPage indexPage = new IndexPage(browser);
+        indexPage.requestPassword();
+
         RequestPage requestPage = new RequestPage(browser);
 
         requestPage.enterAccountName(account);

@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import se.thinkcode.selenium.bdd.steps.buy.currency.BuyCurrencyPage;
 import se.thinkcode.selenium.unit.checkbox.SelectColorPage;
+import se.thinkcode.selenium.unit.form.RequestPasswordPage;
 import se.thinkcode.selenium.unit.locate.HelloWorldPage;
 import se.thinkcode.selenium.unit.popup.AlertPage;
 import se.thinkcode.selenium.unit.radiobutton.SelectBeveragePage;
@@ -68,5 +69,12 @@ public class IndexPage {
         buyCurrency.click();
 
         return new SelectBeveragePage(browser);
+    }
+
+    public RequestPasswordPage requestPassword() {
+        WebElement requestNewPassword = browser.findElement(By.id("requestPassword"));
+        requestNewPassword.click();
+
+        return new RequestPasswordPage(browser);
     }
 }

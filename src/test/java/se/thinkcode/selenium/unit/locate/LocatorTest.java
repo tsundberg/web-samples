@@ -8,12 +8,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import se.thinkcode.selenium.ApplicationHelper;
 import se.thinkcode.selenium.TestHelper;
+import se.thinkcode.selenium.unit.IndexPage;
 
 import static org.junit.Assert.assertTrue;
 
 public class LocatorTest {
     // Javadoc to the locators: https://selenium.googlecode.com/git/docs/api/java/org/openqa/selenium/By.html
     private WebDriver browser;
+    IndexPage indexPage;
 
     @Before
     public void setUp() {
@@ -22,6 +24,7 @@ public class LocatorTest {
         browser = TestHelper.getDefaultBrowser();
         String baseUrl = TestHelper.getBaseUrl();
         browser.get(baseUrl);
+        indexPage = new IndexPage(browser);
     }
 
     @After
@@ -32,8 +35,7 @@ public class LocatorTest {
 
     @Test
     public void locate_using_id() {
-        String page = browser.getCurrentUrl() + "requestPassword.html";
-        browser.get(page);
+        indexPage.requestPassword();
 
         WebElement inputField = browser.findElement(By.id("account"));
 
@@ -42,8 +44,7 @@ public class LocatorTest {
 
     @Test
     public void locate_using_name() {
-        String page = browser.getCurrentUrl() + "requestPassword.html";
-        browser.get(page);
+        indexPage.requestPassword();
 
         WebElement inputField = browser.findElement(By.name("account"));
 
@@ -52,8 +53,7 @@ public class LocatorTest {
 
     @Test
     public void locate_using_xpath() {
-        String page = browser.getCurrentUrl() + "requestPassword.html";
-        browser.get(page);
+        indexPage.requestPassword();
 
         WebElement inputField = browser.findElement(By.xpath(".//*[@id='account']"));
 
@@ -62,8 +62,7 @@ public class LocatorTest {
 
     @Test
     public void locate_using_css() {
-        String page = browser.getCurrentUrl() + "requestPassword.html";
-        browser.get(page);
+        indexPage.requestPassword();
 
         WebElement inputField = browser.findElement(By.cssSelector("#account"));
 
@@ -72,8 +71,7 @@ public class LocatorTest {
 
     @Test
     public void locate_using_tagName() {
-        String page = browser.getCurrentUrl() + "requestPassword.html";
-        browser.get(page);
+        indexPage.requestPassword();
 
         WebElement inputField = browser.findElement(By.tagName("input"));
 

@@ -8,16 +8,12 @@ import se.thinkcode.selenium.bdd.steps.password.ConfirmationPage;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class RequestNewPasswordPage {
+public class RequestPasswordPage {
     private WebDriver browser;
     private String account;
 
-    public RequestNewPasswordPage(WebDriver browser) {
+    public RequestPasswordPage(WebDriver browser) {
         this.browser = browser;
-
-        String page = browser.getCurrentUrl() + "requestPassword.html";
-        browser.get(page);
-
 
         String expectedTitle = "Request new password";
         String actualTitle = browser.getTitle();

@@ -20,6 +20,7 @@ public class Main {
         staticFileLocation("/public");
         index();
         helloWorld();
+        requestPassword();
         selectColor();
         selectedColor();
         selectBeverage();
@@ -51,6 +52,12 @@ public class Main {
     private static void helloWorld() {
         get("/helloWorld", (request, response) -> {
             return new ModelAndView(null, "hello_world.mustache");
+        }, new MustacheTemplateEngine());
+    }
+
+    private static void requestPassword() {
+        get("/requestPassword", (request, response) -> {
+            return new ModelAndView(null, "request_password.mustache");
         }, new MustacheTemplateEngine());
     }
 
