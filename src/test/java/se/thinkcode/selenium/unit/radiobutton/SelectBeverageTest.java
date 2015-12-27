@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import se.thinkcode.selenium.ApplicationHelper;
 import se.thinkcode.selenium.TestHelper;
+import se.thinkcode.selenium.unit.IndexPage;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -16,6 +17,7 @@ import static org.junit.Assert.assertThat;
 
 public class SelectBeverageTest {
     private WebDriver browser;
+    private SelectBeveragePage selectBeveragePage;
 
     @Before
     public void setUp() {
@@ -24,6 +26,8 @@ public class SelectBeverageTest {
         browser = TestHelper.getDefaultBrowser();
         String baseUrl = TestHelper.getBaseUrl();
         browser.get(baseUrl);
+        IndexPage indexPage = new IndexPage(browser);
+        selectBeveragePage = indexPage.selectBeverage();
     }
 
     @After
@@ -34,8 +38,6 @@ public class SelectBeverageTest {
 
     @Test
     public void find_beverages_to_choose_from() {
-        SelectBeveragePage selectBeveragePage = new SelectBeveragePage(browser);
-
         List<String> expected = new LinkedList<>();
         expected.add("coffee");
         expected.add("tea");
@@ -47,8 +49,6 @@ public class SelectBeverageTest {
 
     @Test
     public void select_coffee() {
-        SelectBeveragePage selectBeveragePage = new SelectBeveragePage(browser);
-
         String initialSelection = selectBeveragePage.getSelectedBeverage();
         assertThat(initialSelection, is(""));
 
@@ -60,8 +60,6 @@ public class SelectBeverageTest {
 
     @Test
     public void select_tea() {
-        SelectBeveragePage selectBeveragePage = new SelectBeveragePage(browser);
-
         String initialSelection = selectBeveragePage.getSelectedBeverage();
         assertThat(initialSelection, is(""));
 

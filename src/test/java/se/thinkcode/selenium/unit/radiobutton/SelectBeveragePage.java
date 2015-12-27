@@ -16,9 +16,6 @@ public class SelectBeveragePage {
     public SelectBeveragePage(WebDriver browser) {
         this.browser = browser;
 
-        String page = browser.getCurrentUrl() + "selectBeverage.html";
-        browser.get(page);
-
         String expectedTitle = "Select beverage";
         String actualTitle = browser.getTitle();
 

@@ -22,6 +22,7 @@ public class Main {
         helloWorld();
         selectColor();
         selectedColor();
+        selectBeverage();
         selectCondiment();
         alert();
         requestNewPassword();
@@ -67,6 +68,12 @@ public class Main {
             map.put("colors", colorQueryMap.values());
 
             return new ModelAndView(map, "selected_colors.mustache");
+        }, new MustacheTemplateEngine());
+    }
+
+    private static void selectBeverage() {
+        get("/selectBeverage", (request, response) -> {
+            return new ModelAndView(null, "select_beverage.mustache");
         }, new MustacheTemplateEngine());
     }
 

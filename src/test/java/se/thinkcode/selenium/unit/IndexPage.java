@@ -7,6 +7,7 @@ import se.thinkcode.selenium.bdd.steps.buy.currency.BuyCurrencyPage;
 import se.thinkcode.selenium.unit.checkbox.SelectColorPage;
 import se.thinkcode.selenium.unit.locate.HelloWorldPage;
 import se.thinkcode.selenium.unit.popup.AlertPage;
+import se.thinkcode.selenium.unit.radiobutton.SelectBeveragePage;
 import se.thinkcode.selenium.unit.select.SelectCondimentPage;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -60,5 +61,12 @@ public class IndexPage {
         buyCurrency.click();
 
         return new BuyCurrencyPage(browser);
+    }
+
+    public SelectBeveragePage selectBeverage() {
+        WebElement buyCurrency = browser.findElement(By.id("selectBeverage"));
+        buyCurrency.click();
+
+        return new SelectBeveragePage(browser);
     }
 }
