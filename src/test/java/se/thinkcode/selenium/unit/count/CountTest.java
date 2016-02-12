@@ -62,6 +62,8 @@ public class CountTest {
 
         //Validate the content
 
+        // Close the browser
+        browser.quit();
 
     }
 }
