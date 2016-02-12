@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Count</title>
+
+    {{> header}}
+
+<body>
+
+<div class="container">
+    <div class="col-sm-9">
+        <br>
+        <p id="count">
+            0
+        </p>
+
+        <a onClick='setTimeout(function(){$("#count").text("1");}, 1000);'>increment</a>
+
+    </div>
+</div>
+
+{{> footer}}

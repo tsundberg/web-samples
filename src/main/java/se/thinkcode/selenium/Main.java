@@ -33,6 +33,7 @@ public class Main {
         buyCurrency();
         calculateCurrencyCost();
         about();
+        count();
         awaitInitialization();
     }
 
@@ -178,6 +179,12 @@ public class Main {
     private static void about() {
         get("/about", (request, response) -> {
             return new ModelAndView(null, "about.mustache");
+        }, new MustacheTemplateEngine());
+    }
+
+    private static void count() {
+        get("/count", (request, response) -> {
+            return new ModelAndView(null, "count.mustache");
         }, new MustacheTemplateEngine());
     }
 }
