@@ -11,7 +11,6 @@ import java.io.File;
 import java.io.IOException;
 
 public class ScreenShotRule extends TestWatcher {
-    private static final String SCREENSHOT_DESTINATION_DIR = "target/screenshots";
     private WebDriver browser;
 
     public ScreenShotRule(WebDriver browser) {
@@ -28,15 +27,15 @@ public class ScreenShotRule extends TestWatcher {
         } catch (IOException ioe) {
             throw new RuntimeException(ioe);
         }
+        System.out.println("Screenshot is available in: " + destFile.getAbsolutePath());
     }
 
     @Override
     protected void finished(Description description) {
-        browser.close();
     }
 
     private File getDestinationFile(Description description) {
-        File destDir = new File(SCREENSHOT_DESTINATION_DIR);
+        File destDir = new File("target/screenshots");
         destDir.mkdirs();
         String screenShotName = description.getClassName() + "." + description.getMethodName() + ".png";
         String absoluteFileName = destDir.getPath() + "/" + screenShotName;
