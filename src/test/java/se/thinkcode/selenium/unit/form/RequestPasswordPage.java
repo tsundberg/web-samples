@@ -10,7 +10,6 @@ import static org.junit.Assert.assertThat;
 
 public class RequestPasswordPage {
     private WebDriver browser;
-    private String account;
 
     public RequestPasswordPage(WebDriver browser) {
         this.browser = browser;
@@ -25,7 +24,8 @@ public class RequestPasswordPage {
         WebElement accountField = browser.findElement(By.id("account"));
         accountField.sendKeys(account);
 
-        accountField.submit();
+        WebElement submitButton = browser.findElement(By.name("submit"));
+        submitButton.click();
 
         return new ConfirmPasswordSentPage(browser);
     }
