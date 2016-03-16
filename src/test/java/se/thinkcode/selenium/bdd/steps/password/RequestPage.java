@@ -29,7 +29,8 @@ public class RequestPage {
         WebElement accountField = browser.findElement(By.id("account"));
         accountField.sendKeys(account);
 
-        accountField.submit();
+        WebElement submitButton = browser.findElement(By.name("submit"));
+        submitButton.click();
 
         return new ConfirmationPage(browser);
     }
