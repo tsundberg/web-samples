@@ -28,7 +28,7 @@ public class CrossBrowserTest {
 
     @Before
     public void setUp() {
-        String baseUrl = "http://selenium.thinkcode.se";
+        String baseUrl = "http://selenium.thinkcode.se/helloWorld";
         browser.get(baseUrl);
     }
 
@@ -40,8 +40,8 @@ public class CrossBrowserTest {
     @Test
     public void hello_world() {
         String expected = "Hello, world!";
-        IndexPage indexPage = new IndexPage(browser);
-        HelloWorldPage helloWorldPage = indexPage.helloWorld();
+
+        HelloWorldPage helloWorldPage = new HelloWorldPage(browser);
 
         String actual = helloWorldPage.getHeadLine();
 
@@ -51,6 +51,7 @@ public class CrossBrowserTest {
     @Parameterized.Parameters
     public static Collection<WebDriver[]> browsers() {
         List<WebDriver[]> browsers = new LinkedList<>();
+
         browsers.add(new WebDriver[]{new HtmlUnitDriver(true)});
         browsers.add(new WebDriver[]{new FirefoxDriver()});
 
