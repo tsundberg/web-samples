@@ -30,21 +30,20 @@ public class ChangePasswordTest {
     @Before
     public void setUp() {
         browser = new FirefoxDriver();
-        String baseUrl = "http://selenium.thinkcode.se";
+        String baseUrl = "http://selenium.thinkcode.se/requestPassword";
         browser.get(baseUrl);
     }
 
     @After
     public void tearDown() {
-        browser.close();
+        browser.quit();
     }
 
     @Test
     public void request_new_password() {
         String expected = "A new password has been sent to " + account;
-        IndexPage indexPage = new IndexPage(browser);
-        RequestPasswordPage requestPasswordPage = indexPage.requestPassword();
 
+        RequestPasswordPage requestPasswordPage = new RequestPasswordPage(browser);
         ConfirmPasswordSentPage confirmPasswordSentPage = requestPasswordPage.requestNewPassword(account);
 
         String actual = confirmPasswordSentPage.getConfirmationMessage();
