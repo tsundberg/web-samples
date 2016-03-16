@@ -18,7 +18,7 @@ public class ExchangeRateTest {
     @Before
     public void setUp() {
         browser = new FirefoxDriver();
-        String baseUrl = "http://selenium.thinkcode.se";
+        String baseUrl = "http://selenium.thinkcode.se/exchangeRate";
         browser.get(baseUrl);
     }
 
@@ -31,8 +31,7 @@ public class ExchangeRateTest {
     public void wait_for_slow_exchange_rate_server() {
         float expected = 2.07f;
 
-        IndexPage indexPage = new IndexPage(browser);
-        RequestExchangeRatePage requestExchangeRatePage = indexPage.requestExchangeRate();
+        RequestExchangeRatePage requestExchangeRatePage = new RequestExchangeRatePage(browser);
 
         Currency from = Currency.getInstance("RON");
         Currency to = Currency.getInstance("SEK");
