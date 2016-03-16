@@ -13,14 +13,11 @@ public class PasswordHelper {
     public PasswordHelper(String account) {
         this.account = account;
         browser = new FirefoxDriver();
-        String baseUrl = "http://selenium.thinkcode.se";
+        String baseUrl = "http://selenium.thinkcode.se/requestPassword";
         browser.get(baseUrl);
     }
 
     public void sendRequest() {
-        IndexPage indexPage = new IndexPage(browser);
-        indexPage.requestPassword();
-
         RequestPage requestPage = new RequestPage(browser);
 
         requestPage.enterAccountName(account);
