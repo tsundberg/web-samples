@@ -1,7 +1,7 @@
 package se.thinkcode.selenium.bdd.steps.password;
 
 import org.openqa.selenium.WebDriver;
-import se.thinkcode.selenium.TestHelper;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import se.thinkcode.selenium.unit.IndexPage;
 
 public class PasswordHelper {
@@ -12,8 +12,8 @@ public class PasswordHelper {
 
     public PasswordHelper(String account) {
         this.account = account;
-        browser = TestHelper.getDefaultBrowser();
-        String baseUrl = TestHelper.getBaseUrl();
+        browser = new FirefoxDriver();
+        String baseUrl = "http://selenium.thinkcode.se";
         browser.get(baseUrl);
     }
 

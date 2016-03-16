@@ -22,7 +22,7 @@ public class RemoteCrossBrowserTest implements SauceOnDemandSessionIdProvider {
         resultReportingTestWatcher = new SauceOnDemandTestWatcher(this, authentication);
         sessionId = (((RemoteWebDriver) browser).getSessionId()).toString();
 
-        String baseUrl = TestHelper.getBaseUrl();
+        String baseUrl = "http://selenium.thinkcode.se";
         browser.get(baseUrl);
     }
 

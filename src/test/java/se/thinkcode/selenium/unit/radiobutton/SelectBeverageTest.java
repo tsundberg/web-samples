@@ -5,8 +5,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import se.thinkcode.selenium.ApplicationHelper;
-import se.thinkcode.selenium.TestHelper;
 import se.thinkcode.selenium.unit.IndexPage;
 
 import java.util.LinkedList;
@@ -21,10 +19,8 @@ public class SelectBeverageTest {
 
     @Before
     public void setUp() {
-        ApplicationHelper.start();
-
-        browser = TestHelper.getDefaultBrowser();
-        String baseUrl = TestHelper.getBaseUrl();
+        browser = new FirefoxDriver();
+        String baseUrl = "http://selenium.thinkcode.se";
         browser.get(baseUrl);
         IndexPage indexPage = new IndexPage(browser);
         selectBeveragePage = indexPage.selectBeverage();
@@ -32,7 +28,6 @@ public class SelectBeverageTest {
 
     @After
     public void tearDown() {
-        ApplicationHelper.shutdown();
         browser.close();
     }
 

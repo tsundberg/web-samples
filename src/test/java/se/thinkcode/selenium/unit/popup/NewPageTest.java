@@ -4,8 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import se.thinkcode.selenium.ApplicationHelper;
-import se.thinkcode.selenium.TestHelper;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -15,16 +14,13 @@ public class NewPageTest {
 
     @Before
     public void setUp() {
-        ApplicationHelper.start();
-
-        browser = TestHelper.getDefaultBrowser();
-        String baseUrl = TestHelper.getBaseUrl();
+        browser = new FirefoxDriver();
+        String baseUrl = "http://selenium.thinkcode.se";
         browser.get(baseUrl);
     }
 
     @After
     public void tearDown() {
-        ApplicationHelper.shutdown();
         browser.quit();
     }
 

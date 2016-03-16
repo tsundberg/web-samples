@@ -2,8 +2,7 @@ package se.thinkcode.selenium.unit.screenshot;
 
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
-import se.thinkcode.selenium.ApplicationHelper;
-import se.thinkcode.selenium.TestHelper;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import se.thinkcode.selenium.unit.radiobutton.SelectBeveragePage;
 
 import java.util.LinkedList;
@@ -19,21 +18,18 @@ public class FailingTest {
     public ScreenShotRule screenShootRule;
 
     public FailingTest() {
-        browser = TestHelper.getDefaultBrowser();
+        browser = new FirefoxDriver();
         screenShootRule = new ScreenShotRule(browser);
     }
 
     @Before
     public void setUp() {
-        ApplicationHelper.start();
-
-        String baseUrl = TestHelper.getBaseUrl();
+        String baseUrl = "http://selenium.thinkcode.se";
         browser.get(baseUrl);
     }
 
     @After
     public void tearDown() {
-        ApplicationHelper.shutdown();
         browser.close();
     }
 

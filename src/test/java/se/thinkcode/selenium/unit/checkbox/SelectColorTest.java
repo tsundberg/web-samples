@@ -4,8 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import se.thinkcode.selenium.ApplicationHelper;
-import se.thinkcode.selenium.TestHelper;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import se.thinkcode.selenium.unit.IndexPage;
 
 import static org.junit.Assert.assertTrue;
@@ -16,10 +15,8 @@ public class SelectColorTest {
 
     @Before
     public void setUp() {
-        ApplicationHelper.start();
-
-        browser = TestHelper.getDefaultBrowser();
-        String baseUrl = TestHelper.getBaseUrl();
+        browser = new FirefoxDriver();
+        String baseUrl = "http://selenium.thinkcode.se";
         browser.get(baseUrl);
         IndexPage indexPage = new IndexPage(browser);
         selectColor = indexPage.selectColor();
@@ -27,7 +24,6 @@ public class SelectColorTest {
 
     @After
     public void tearDown() {
-        ApplicationHelper.shutdown();
         browser.close();
     }
 

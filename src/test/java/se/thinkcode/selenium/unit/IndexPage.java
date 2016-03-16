@@ -3,7 +3,6 @@ package se.thinkcode.selenium.unit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import se.thinkcode.selenium.bdd.steps.buy.currency.BuyCurrencyPage;
 import se.thinkcode.selenium.unit.checkbox.SelectColorPage;
 import se.thinkcode.selenium.unit.form.RequestPasswordPage;
 import se.thinkcode.selenium.unit.locate.HelloWorldPage;
@@ -56,13 +55,6 @@ public class IndexPage {
         helloWorld.click();
 
         return new HelloWorldPage(browser);
-    }
-
-    public BuyCurrencyPage buyCurrency() {
-        WebElement buyCurrency = browser.findElement(By.id("buyCurrency"));
-        buyCurrency.click();
-
-        return new BuyCurrencyPage(browser);
     }
 
     public SelectBeveragePage selectBeverage() {

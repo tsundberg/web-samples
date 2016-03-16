@@ -3,7 +3,6 @@ package se.thinkcode.selenium.bdd.steps.password;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import se.thinkcode.selenium.ApplicationHelper;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -13,8 +12,6 @@ public class PasswordSteps {
 
     @Given("^(.*) need a new password$")
     public void a_user_need_a_new_password(String account) throws Throwable {
-        ApplicationHelper.start();
-
         passwordHelper = new PasswordHelper(account);
     }
 
@@ -27,7 +24,5 @@ public class PasswordSteps {
     public void should_a_confirmation_message_be_visible(String expected) throws Throwable {
         String actual = passwordHelper.getConfirmationMessage();
         assertThat(actual, is(expected));
-
-        ApplicationHelper.shutdown();
     }
 }

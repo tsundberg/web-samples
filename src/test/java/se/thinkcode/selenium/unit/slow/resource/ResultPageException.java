@@ -1,4 +1,4 @@
-package se.thinkcode.selenium.bdd.steps.buy.currency;
+package se.thinkcode.selenium.unit.slow.resource;
 
 public class ResultPageException extends RuntimeException {
 }

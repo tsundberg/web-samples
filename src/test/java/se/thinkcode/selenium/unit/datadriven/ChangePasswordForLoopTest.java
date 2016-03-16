@@ -4,8 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import se.thinkcode.selenium.ApplicationHelper;
-import se.thinkcode.selenium.TestHelper;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import se.thinkcode.selenium.unit.IndexPage;
 import se.thinkcode.selenium.unit.form.ConfirmPasswordSentPage;
 import se.thinkcode.selenium.unit.form.RequestPasswordPage;
@@ -21,21 +20,18 @@ public class ChangePasswordForLoopTest {
 
     @Before
     public void setUp() {
-        ApplicationHelper.start();
-
-        browser = TestHelper.getDefaultBrowser();
+        browser = new FirefoxDriver();
     }
 
     @After
     public void tearDown() {
-        ApplicationHelper.shutdown();
         browser.close();
     }
 
     @Test
     public void request_new_password() {
         for (String account : accounts()) {
-            String baseUrl = TestHelper.getBaseUrl();
+            String baseUrl = "http://selenium.thinkcode.se";
             browser.get(baseUrl);
 
             String expected = "A new password has been sent to " + account;

@@ -6,12 +6,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
-import se.thinkcode.selenium.ApplicationHelper;
-import se.thinkcode.selenium.TestHelper;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import se.thinkcode.selenium.unit.IndexPage;
 import se.thinkcode.selenium.unit.locate.HelloWorldPage;
 
 import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -26,15 +28,12 @@ public class CrossBrowserTest {
 
     @Before
     public void setUp() {
-        ApplicationHelper.start();
-
-        String baseUrl = TestHelper.getBaseUrl();
+        String baseUrl = "http://selenium.thinkcode.se";
         browser.get(baseUrl);
     }
 
     @After
     public void tearDown() {
-        ApplicationHelper.shutdown();
         browser.quit();
     }
 
@@ -51,6 +50,10 @@ public class CrossBrowserTest {
 
     @Parameterized.Parameters
     public static Collection<WebDriver[]> browsers() {
-        return TestHelper.getCrossBrowsers();
+        List<WebDriver[]> browsers = new LinkedList<>();
+        browsers.add(new WebDriver[]{new HtmlUnitDriver(true)});
+        browsers.add(new WebDriver[]{new FirefoxDriver()});
+
+        return browsers;
     }
 }
